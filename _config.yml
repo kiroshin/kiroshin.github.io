@@ -1,0 +1,27 @@
+lang: ko
+locale: ko_KR
+title: Exception
+description: Hello, World!
+permalink: /:year-:month-:day-:title
+date_format: "%Y.%m.%d"
+profile: "assets/profile.jpg"
+author: Kiro Shin
+email: mulgom@gmail.com
+tagline: App Developer.
+github: https://github.com/kiroshin/
+instagram: https://www.instagram.com/kiro.shin_/
+foot-log: Take pride in your work.
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+include:
+  - _pages
+
+exclude:
+  - Gemfile
+  - README
+
+plugins:
+  - jekyll-sitemap

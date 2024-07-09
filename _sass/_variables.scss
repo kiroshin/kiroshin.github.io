@@ -1,0 +1,36 @@
+$screen-tablet : 768px !default;   // mobile ~<= 480, tablet ~<= 768
+$screen-laptop: 1024px !default;   // tablet landscape ~<= 1024
+$screen-desk: 1600px !default;     // laptop ~<= 1600 < desk
+
+$header-height: 50px;
+$layout-gap: 32px;
+$unit-gap: 16px;
+$min-profile-size: 100px;
+$max-profile-size: 150px;
+$social-icon-size: 28px;
+$radius-tiny-size: 4px;
+$radius-small-size: 8px;
+$radius-half: 50%;
+
+$serif: Georgia, Times, serif !default;
+$sans-serif: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
+$monospace: Monaco, Consolas, "Lucida Console", monospace !default;
+
+$link-color: #044c87;
+$link-color-focus: #00a4d6;
+$link-color-visited: #044c87;
+$link-color-hover: #00a4d6;
+$link-hover-filter: brightness(0) saturate(100%) invert(44%) sepia(100%) saturate(1339%) hue-rotate(160deg) brightness(93%) contrast(101%);
+// https://angel-rs.github.io/css-color-filter-generator/
+
+$text-color: #04101F;
+$sub-text-color: #4C566A;
+$line-color: 1px solid rgba(0, 0, 0, 0.04);
+$transition-hover: all .3s ease-in-out;
+$bg-color: white;
+$bg-sidebar-color: #F5F6FA;
+$bg-code-color: #F8F8F8;
+$bg-card-color: #FAFAFC;
+$divider-color: #F5F6FA;
+$box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+$box-shadow-hover: 0px 0px 10px rgba(0, 0, 0, 0.3);

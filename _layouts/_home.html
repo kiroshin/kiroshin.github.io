@@ -1,0 +1,48 @@
+---
+layout: default
+---
+{%- assign post = site.posts.first -%}
+{%- assign date_format = site.date_format | default: "%F" -%}
+
+<h1>Home</h1>
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h2 class="post-title"><a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | smartify }}</a></h2>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date: '%F' }}" itemprop="datePublished">
+        {{ post.date | date: date_format }}
+      </time>
+    </p>
+
+    {%- if post.categories.size > 0-%}
+    <ul class="post-categories">
+      {%- assign categories = post.categories | sort -%}
+      {%- for category in categories -%}
+      <li>{{ category }}</li>
+      {%- endfor -%}
+    </ul>
+    {%- endif -%}
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    {{ post.content }}
+  </div>
+</article>
+
+<section role="navigation" class="post-section">
+  <ul>
+    {%- for other in site.posts offset:1 limit: site.recent_posts_limit -%}
+    <li>
+      <span class="post-meta">
+        {{ other.date | date: date_format }}
+      </span>
+      <h3>
+        <a class="post-link" href="{{ other.url | relative_url }}">{{ other.title }}</a>
+      </h3>
+      {%- if site.show_excerpts -%}
+          {{ other.excerpt }}
+      {%- endif -%}
+    </li>
+    {%- endfor -%}
+  </ul>
+</section>

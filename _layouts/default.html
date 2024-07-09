@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  <head>
+    {% include head.html -%}
+  </head>
+  <body>
+    <header class="layout">
+      <p class="home-link"><a href="/">{{ site.title }}</a></p>
+    </header>
+    <main class="layout {{ page.layout }}" aria-label="Content">
+      {{ content }}
+    </main>
+    <nav class="layout">
+      {% include sidebar.html -%}
+    </nav>
+    <footer class="layout">
+      <p class="foot-log">{{ site.foot-log }}</p>
+    </footer>
+  </body>
+</html>

@@ -25,10 +25,8 @@ h6 {
 h1 {
     margin: 1em 0;
     font-size: 1.8em;
-    letter-spacing: -0.05em;
-    font-weight: 300;
     @media screen and (min-width: $screen-tablet) {
-        font-size: 2.4em;
+        font-size: 2.2em;
     }
 }
 

@@ -21,7 +21,7 @@ word: 60
             </p>
         </header>
         <div class="post-content" itemprop="articleBody">
-            {{ post.brief | default: post.excerpt | strip_html | truncatewords: page.word | smartify }}
+            <p>{{ post.brief | default: post.excerpt | strip_html | truncatewords: page.word | smartify }}</p>
         </div>
         {%- if post.teaser -%}
         <footer class="post-teaser">

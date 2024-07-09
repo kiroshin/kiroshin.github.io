@@ -53,11 +53,11 @@ aside.post-teaser img {
 
 .post-content {
     font-family: "Noto Serif KR", $serif;
-    text-align : justify;
-    word-break: keep-all;
     @media screen and (min-width: $screen-tablet) {
         font-size: 20px;
         line-height: 1.6;
+        text-align : justify;
+        word-break: keep-all;
     }
     li {
         font-family: $sans-serif;

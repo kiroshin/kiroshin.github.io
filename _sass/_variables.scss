@@ -12,9 +12,9 @@ $radius-tiny-size: 4px;
 $radius-small-size: 8px;
 $radius-half: 50%;
 
-$serif: Georgia, Times, serif !default;
-$sans-serif: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
-$monospace: Monaco, Consolas, "Lucida Console", monospace !default;
+$serif: -apple-system-ui-serif, ui-serif, Georgia, Times, serif !default;
+$sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$monospace: "Source Code Pro", ui-monospace, SFMono-Regular, ui-monospace, Monaco, Consolas, "Lucida Console", monospace !default;
 
 $link-color: #044c87;
 $link-color-focus: #00a4d6;

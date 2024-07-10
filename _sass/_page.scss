@@ -178,9 +178,8 @@ code {
     background: $bg-code-color;
     pre {
         letter-spacing: 0 !important;
-        line-height: 1.4 !important;
-        font-size: calc($text-font-size-small - 1px) !important;
-        // font-size: $text-font-size-small !important;
+        line-height: 1.25 !important;
+        font-size: $text-font-size-small !important;
         margin: 8px;
     }
 }

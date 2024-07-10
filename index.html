@@ -14,11 +14,19 @@ word: 60
           {{ post.title | smartify }}
         </a>
       </h2>
-        <p class="post-meta">
-          <time datetime="{{ post.date | date: '%F' }}" itemprop="datePublished">
-            {{ post.date | date: site.date_format }}
-          </time>
-        </p>
+      <div class="post-meta">
+        <time datetime="{{ post.date | date: '%F' }}" itemprop="datePublished">
+          {{ post.date | date: '%m.%d' }}
+        </time>
+        {%- if post.categories.size > 0 -%}
+        {%- assign categories = post.categories | sort -%}
+        <ul class="post-categories">
+        {%- for category in categories -%}
+          <li>{{ category }}</li>
+        {%- endfor -%}
+        </ul>
+        {%- endif -%}
+      </div>
     </header>
     <div class="post-content" itemprop="articleBody">
       <p>{{ post.brief | default: post.excerpt | strip_html | truncatewords: page.word | smartify }}</p>

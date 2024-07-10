@@ -5,7 +5,6 @@ sitemap: false
 User-agent: *
 Allow: /
 
-Disallow: {{site.baseurl }}/{{ site.profile }}
 Disallow: /*.xlsx$
 Disallow: /*.cvs$
 Disallow: /*.pdf$

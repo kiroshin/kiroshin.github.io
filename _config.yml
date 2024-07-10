@@ -4,7 +4,7 @@ title: Exception
 description: Hello, World!
 permalink: /:year-:month-:day-:title
 date_format: "%Y.%m.%d"
-profile: "assets/profile.jpg"
+profile: "https://avatars.githubusercontent.com/kiroshin?v=4&s=300"
 author: Kiro Shin
 email: mulgom@gmail.com
 tagline: App Developer.

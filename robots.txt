@@ -8,5 +8,6 @@ Allow: /
 Disallow: {{site.baseurl }}/{{ site.profile }}
 Disallow: /*.xlsx$
 Disallow: /*.cvs$
+Disallow: /*.pdf$
 
 Sitemap: {{ "sitemap.xml" | absolute_url }}

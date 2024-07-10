@@ -1,268 +1,268 @@
 body {
-    // mobile first
-    display: grid;
-    grid-template-columns: 16px minmax(300px, auto) 16px;
+  // mobile first
+  display: grid;
+  grid-template-columns: 16px minmax(300px, auto) 16px;
+  grid-template-rows: $header-height minmax(500px, auto) minmax(200px, auto) 100px;
+  background-color: $bg-color;
+  //  768 <= tablet < 1024
+  @media screen and (min-width: $screen-tablet) {
+    grid-template-columns: 1fr 750px 1fr;
     grid-template-rows: $header-height minmax(500px, auto) minmax(200px, auto) 100px;
-    background-color: $bg-color;
-    //  768 <= tablet < 1024
-    @media screen and (min-width: $screen-tablet) {
-        grid-template-columns: 1fr 750px 1fr;
-        grid-template-rows: $header-height minmax(500px, auto) minmax(200px, auto) 100px;
-    }
-    // 1024 <= laptop < 1600
-    @media screen and (min-width: $screen-laptop) {
-        grid-template-columns: minmax(200px, 2fr) 800px 1fr;
-        grid-template-rows: $header-height minmax(500px, auto) 100px;
-    }
-    // 1600 < desk
-    @media screen and (min-width: $screen-desk) {
-        grid-template-columns: minmax(200px, 2fr) 900px 1fr;
-        grid-template-rows: $header-height minmax(500px, auto) 100px;
-    }   
+  }
+  // 1024 <= laptop < 1600
+  @media screen and (min-width: $screen-laptop) {
+    grid-template-columns: minmax(200px, 2fr) 800px 1fr;
+    grid-template-rows: $header-height minmax(500px, auto) 100px;
+  }
+  // 1600 < desk
+  @media screen and (min-width: $screen-desk) {
+    grid-template-columns: minmax(200px, 2fr) 900px 1fr;
+    grid-template-rows: $header-height minmax(500px, auto) 100px;
+  }   
 }
 
 header.layout {
-    grid-column: 2;
-    grid-row: 1;
-    @media screen and (min-width: $screen-tablet) {
-        padding: 0 $layout-gap;
+  grid-column: 2;
+  grid-row: 1;
+  @media screen and (min-width: $screen-tablet) {
+    padding: 0 $layout-gap;
+  }
+  .home-link {
+    font-family: $monospace;
+    color: $divider-color;
+    &:before {
+      content: "[[";
+      padding-right: $unit-gap;
     }
-    .home-link {
-        font-family: $monospace;
-        color: $divider-color;
-        &:before {
-            content: "[[";
-            padding-right: $unit-gap;
-        }
-        &:after {
-            content: "]]";
-            padding-left: $unit-gap;
-        }
-        @media screen and (min-width: $screen-laptop) {
-            display: none;
-        }
+    &:after {
+      content: "]]";
+      padding-left: $unit-gap;
     }
+    @media screen and (min-width: $screen-laptop) {
+      display: none;
+    }
+  }
 }
 
 main.layout {
-    grid-column: 2;
-    grid-row: 2;
-    @media screen and (min-width: $screen-tablet) {
-        padding: 0 $layout-gap;
-    }
-    @media screen and (min-width: $screen-laptop) {
-        padding: 0 0 0 $layout-gap;
-    }
+  grid-column: 2;
+  grid-row: 2;
+  @media screen and (min-width: $screen-tablet) {
+    padding: 0 $layout-gap;
+  }
+  @media screen and (min-width: $screen-laptop) {
+    padding: 0 0 0 $layout-gap;
+  }
 }
 
 nav.layout {
-    grid-column: 2;
-    grid-row: 3;
+  grid-column: 2;
+  grid-row: 3;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: $bg-sidebar-color;
+  padding: 0 $layout-gap;
+  border-radius: $radius-small-size;
+  @media screen and (min-width: $screen-laptop) {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: flex-end;
+    border-radius: 0;
+    padding: $header-height $layout-gap 0 0;
+  }
+  .about {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
-    justify-content: flex-start;
+    min-width: $min-profile-size;
+    min-height: $max-profile-size;
     align-items: center;
-    background-color: $bg-sidebar-color;
-    padding: 0 $layout-gap;
-    border-radius: $radius-small-size;
     @media screen and (min-width: $screen-laptop) {
-        grid-column: 1;
-        grid-row: 1 / span 3;
-        min-height: 100vh;
-        flex-direction: column;
-        align-items: flex-end;
-        border-radius: 0;
-        padding: $header-height $layout-gap 0 0;
+      min-width: $max-profile-size;
+      flex-direction: column;
+      align-items: stretch;
     }
-    .about {
-        display: flex;
-        flex-direction: row;
-        min-width: $min-profile-size;
-        min-height: $max-profile-size;
-        align-items: center;
-        @media screen and (min-width: $screen-laptop) {
-            min-width: $max-profile-size;
-            flex-direction: column;
-            align-items: stretch;
-        }
-        img {
-            width: $min-profile-size;
-            height: $min-profile-size;
-            padding: 2px;
-            border-radius: $radius-half;
-            box-shadow: $box-shadow;
-            // transition: $transition-hover;
-            @media screen and (min-width: $screen-laptop) {
-                width: $max-profile-size;
-                height: $max-profile-size;
-            }
-            &:hover {
-                box-shadow: $box-shadow-hover;
-                transition: $transition-hover;
-            }
-        }
+    img {
+      width: $min-profile-size;
+      height: $min-profile-size;
+      padding: 2px;
+      border-radius: $radius-half;
+      box-shadow: $box-shadow;
+      // transition: $transition-hover;
+      @media screen and (min-width: $screen-laptop) {
+          width: $max-profile-size;
+          height: $max-profile-size;
+      }
+      &:hover {
+          box-shadow: $box-shadow-hover;
+          transition: $transition-hover;
+      }
     }
-    .author {
-        min-width: 50%;
-        padding-left: $layout-gap;
-        @media screen and (min-width: $screen-laptop) {
-            min-width: $max-profile-size;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 0;
-            padding: $layout-gap 0;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            display: inline-block;
-        }
+  }
+  .author {
+    min-width: 50%;
+    padding-left: $layout-gap;
+    @media screen and (min-width: $screen-laptop) {
+      min-width: $max-profile-size;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: $layout-gap 0;
     }
-    .menu {
-        position: relative;
-        min-width: 100%;
-        text-align: right;
-        column-count: 2;
-        @media screen and (min-width: $screen-tablet) {
-            column-count: 3;
-        }
-        @media screen and (min-width: $screen-laptop) {
-            column-count: 1;
-            position: sticky;
-            top: 0;
-            min-width: $max-profile-size;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        li {
-            line-height: 3em;
-            margin: 4px 0;
-            border-top: $line-color;
-            @media screen and (min-width: $screen-laptop) {
-                line-height: 2em;
-                display: block;
-            }
-            a {
-                display: block;
-            }
-        }
-    }   
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      display: inline-block;
+    }
+  }
+  .menu {
+    position: relative;
+    min-width: 100%;
+    text-align: right;
+    column-count: 2;
+    @media screen and (min-width: $screen-tablet) {
+      column-count: 3;
+    }
+    @media screen and (min-width: $screen-laptop) {
+      column-count: 1;
+      position: sticky;
+      top: 0;
+      min-width: $max-profile-size;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      line-height: 3em;
+      margin: 4px 0;
+      border-top: $line-color;
+      @media screen and (min-width: $screen-laptop) {
+        line-height: 2em;
+        display: block;
+      }
+      a {
+        display: block;
+      }
+    }
+  }
 }
 
 footer.layout {
-    grid-column: 2;
-    grid-row: 4;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    @media screen and (min-width: $screen-tablet) {
-        padding: 0 $layout-gap;
-    }
-    @media screen and (min-width: $screen-laptop) {
-        grid-row: 3;
-    }
+  grid-column: 2;
+  grid-row: 4;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  @media screen and (min-width: $screen-tablet) {
+    padding: 0 $layout-gap;
+  }
+  @media screen and (min-width: $screen-laptop) {
+    grid-row: 3;
+  }
 }
 
 // -----------------------------
 article.post-preview {
-    margin-bottom: $unit-gap;
-    padding-bottom: $unit-gap;
-    display: flex;
-    flex-direction: column;
-    border-radius: $radius-small-size;
-    border-bottom: $line-color;
-    background-color: $bg-card-color;
+  margin-bottom: $unit-gap;
+  padding-bottom: $unit-gap;
+  display: flex;
+  flex-direction: column;
+  border-radius: $radius-small-size;
+  border-bottom: $line-color;
+  background-color: $bg-card-color;
+  @media screen and (min-width: $screen-laptop) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-radius: 0;
+    background-color: $bg-color;
+    &:not(:last-child) {
+      border-bottom: 1px solid $divider-color;
+    }
+  }
+  .post-header {
+    order: 1;
+    width: 100%;
+    margin: 0;
+    padding: $unit-gap $unit-gap 0 $unit-gap;
     @media screen and (min-width: $screen-laptop) {
-        flex-direction: row;
-        flex-wrap: wrap;
-        border-radius: 0;
-        background-color: $bg-color;
-        &:not(:last-child) {
-            border-bottom: 1px solid $divider-color;
-        }
+      width: 100%;
+      padding: 0;
     }
-    .post-header {
-        order: 1;
-        width: 100%;
-        margin: 0;
-        padding: $unit-gap $unit-gap 0 $unit-gap;
-        @media screen and (min-width: $screen-laptop) {
-            width: 100%;
-            padding: 0;
-        }
+  }
+  .post-title {
+    margin: 0;
+    padding: 0;
+    a {
+      display: block;
     }
-    .post-title {
-        margin: 0;
-        padding: 0;
-        a {
-            display: block;
-        }
+  }
+  .post-meta {
+    margin: 0;
+    padding: 0;
+  }
+  .post-content {
+    order: 2;
+    display: none;
+    @media screen and (min-width: $screen-tablet) {
+      display: inline-block;
+      padding: 0 $unit-gap 0 $unit-gap;
     }
-    .post-meta {
-        margin: 0;
-        padding: 0;
+    @media screen and (min-width: $screen-laptop) {
+      padding: 0;
+      width: 400px;
+      flex-grow: 1;
     }
-    .post-content {
-        order: 2;
-        display: none;
-        @media screen and (min-width: $screen-tablet) {
-            display: inline-block;
-            padding: 0 $unit-gap 0 $unit-gap;
-        }
-        @media screen and (min-width: $screen-laptop) {
-            padding: 0;
-            width: 400px;
-            flex-grow: 1;
-        }
+  }
+  .post-teaser {
+    order: 0;
+    @media screen and (min-width: $screen-laptop) {
+      order: 3;
+      margin-left: $unit-gap;
+      padding-left: $unit-gap;
+      border-left: 1px solid $divider-color;
     }
-    .post-teaser {
-        order: 0;
-        @media screen and (min-width: $screen-laptop) {
-            order: 3;
-            margin-left: $unit-gap;
-            padding-left: $unit-gap;
-            border-left: 1px solid $divider-color;
-        }
-        img {
-            border-top-left-radius: $radius-small-size;
-            border-top-right-radius: $radius-small-size;
-            @media screen and (min-width: $screen-laptop) {
-                border-radius: $radius-small-size;
-                width: $min-profile-size;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
+    img {
+      border-top-left-radius: $radius-small-size;
+      border-top-right-radius: $radius-small-size;
+      @media screen and (min-width: $screen-laptop) {
+        border-radius: $radius-small-size;
+        width: $min-profile-size;
+        height: 100%;
+        object-fit: cover;
+      }
     }
+  }
 }
 
 main.post {
-    .post-meta {
-        display: flex;
-        flex-direction: row;
+  .post-meta {
+    display: flex;
+    flex-direction: row;
+  }
+  .post-categories {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    &::before {
+      content: "|";
+      padding: 0 8px;
     }
-    .post-categories {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        &::before {
-            content: "|";
-            padding: 0 8px;
-        }
-        li {
-            display: inline-block;
-            &:not(:last-child):after {
-                content: ",";
-                padding-right: 4px;
-            }
-        }
+    li {
+      display: inline-block;
+      &:not(:last-child):after {
+        content: ",";
+        padding-right: 4px;
+      }
     }
+  }
 }

@@ -3,22 +3,22 @@ layout: default
 ---
 
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>    
-    </header>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>    
+  </header>
 
-    <div class="post-content" itemprop="articleBody">
-        {{ content }}
-    </div>
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
 
-    <ul class="post-list">
-        {% for post in site.posts -%}
-        {% capture year %}{{post.date | date: "%Y"}}{% endcapture -%}
-        {% if year == page.title -%}
-        <li>{{ post.date | date: "%m-%d" }} | <a href='{{ post.url }}'>{{ post.title }}</a></li>
-        {% endif -%}
-        {% endfor -%}
-    </ul>
+  <ul class="post-list">
+    {% for post in site.posts -%}
+    {% capture year %}{{post.date | date: "%Y"}}{% endcapture -%}
+    {% if year == page.title -%}
+    <li>{{ post.date | date: "%m-%d" }} | <a href='{{ post.url }}'>{{ post.title }}</a></li>
+    {% endif -%}
+    {% endfor -%}
+  </ul>
 
-    <a href="{{ page.url | relative_url }}" hidden></a>
+  <a href="{{ page.url | relative_url }}" hidden></a>
 </article>

@@ -1,15 +1,15 @@
 @media print {
-    body {
-        display: flex;
-        flex-direction: column;
-    }
+  body {
+    display: flex;
+    flex-direction: column;
+  }
 
-    nav,
-    footer {
-      display: none !important;
-    }
+  nav,
+  footer {
+    display: none !important;
+  }
 
-    .post-content {
-        display: block !important;
-    }
+  .post-content {
+    display: block !important;
+  }
 }

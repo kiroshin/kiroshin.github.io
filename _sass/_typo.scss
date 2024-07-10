@@ -1,10 +1,10 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-size: $text-font-size-medium;
-    color: $text-color;
-    font-family: $sans-serif;
-    line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  font-size: $text-font-size-medium;
+  color: $text-color;
+  font-family: $sans-serif;
+  line-height: 1.5;
 }
 
 h1,
@@ -13,133 +13,133 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 1em 0 .5em 0;
-    font-family: $sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1.2;
-    text-align: start;
+  margin: 1em 0 .5em 0;
+  font-family: $sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1.2;
+  text-align: start;
 }
 
 h1 {
-    margin: 1em 0;
-    font-size: $head-font-h1;
-    @media screen and (min-width: $screen-tablet) {
-        font-size: $head-font-h0;
-    }
+  margin: 1em 0;
+  font-size: $head-font-h1;
+  @media screen and (min-width: $screen-tablet) {
+    font-size: $head-font-h0;
+  }
 }
 
 h2 {
-    font-size: $head-font-h2;
+  font-size: $head-font-h2;
 }
 
 h3 {
-    font-size: $head-font-h3;
+  font-size: $head-font-h3;
 }
 
 h4 {
-    font-size: 1.1em;
-    font-weight: bold;
+  font-size: 1.1em;
+  font-weight: bold;
 }
 
 h5 {
-    font-size: 1em;
-    font-weight: bold;
+  font-size: 1em;
+  font-weight: bold;
 }
 
 h6 {
-    font-size: .9em;
-    font-weight: bold;
+  font-size: .9em;
+  font-weight: bold;
 }
 
 small,
 .small {
-    font-size: 0.85em;
+  font-size: 0.85em;
 }
 
 p {
-    margin: .5em 0;
+  margin: .5em 0;
 }
 
 u,
 ins {
-    text-decoration: none;
-    border-bottom: 1px solid $text-color;
+  text-decoration: none;
+  border-bottom: 1px solid $text-color;
 }
 
 ol, 
 ul {
-    padding-left: 1.5em;
+  padding-left: 1.5em;
 }
 
 li {
-    padding-bottom: .4em;
+  padding-bottom: .4em;
 }
 
 blockquote {
-    margin-left: 0;
-    margin-inline-end: .5em;
-    padding-inline: .5em;
-    font-style: italic;
-    border-inline-start: 0.25em solid $divider-color;
+  margin-left: 0;
+  margin-inline-end: .5em;
+  padding-inline: .5em;
+  font-style: italic;
+  border-inline-start: 0.25em solid $divider-color;
 }
 
 cite {
-    font-style: italic;
+  font-style: italic;
 
-    &::before {
-        content: "“";
-        padding-inline-end: 5px;
-    }
-    &::after {
-        content: "”";
-        padding-inline-end: 5px;
-    }
+  &::before {
+    content: "“";
+    padding-inline-end: 5px;
+  }
+  &::after {
+    content: "”";
+    padding-inline-end: 5px;
+  }
 }
 
 a {
-    text-decoration: none;
-    color: $link-color;
-    &:focus {
-        outline: thin dotted $link-color-focus;
-        outline: 5px auto $link-color-focus;
-        outline-offset: -2px;
-    }
+  text-decoration: none;
+  color: $link-color;
+  &:focus {
+    outline: thin dotted $link-color-focus;
+    outline: 5px auto $link-color-focus;
+    outline-offset: -2px;
+  }
 
-    &:visited {
-        color: $link-color-visited;
-    }
+  &:visited {
+    color: $link-color-visited;
+  }
 
-    &:hover {
-        color: $link-color-hover;
-        outline: 0;
-    }
+  &:hover {
+    color: $link-color-hover;
+    outline: 0;
+  }
 }
 
 hr {
-    display: block;
-    margin: 1em 0;
-    border: 0;
-    border-top: 1px solid $divider-color;
+  display: block;
+  margin: 1em 0;
+  border: 0;
+  border-top: 1px solid $divider-color;
 }
 
 table {
-    display: block;
-    font-size: $text-font-size-small;
-    font-family: $sans-serif;
-    border-collapse: collapse;
-    overflow-x: auto;
-    margin: 1em 0;
-    th, td {
-        vertical-align: middle;
-        padding: 4px 8px;
-        border: 1px solid $divider-color;
-    }
-    th {
-        vertical-align: middle;
-        text-align: start;
-        background-color: $bg-card-color;
-    }
+  display: block;
+  font-size: $text-font-size-small;
+  font-family: $sans-serif;
+  border-collapse: collapse;
+  overflow-x: auto;
+  margin: 1em 0;
+  th, td {
+    vertical-align: middle;
+    padding: 4px 8px;
+    border: 1px solid $divider-color;
+  }
+  th {
+    vertical-align: middle;
+    text-align: start;
+    background-color: $bg-card-color;
+  }
 }
 
 tt,
@@ -147,9 +147,9 @@ code,
 kbd,
 samp,
 pre {
-    font-family: $monospace;
+  font-family: $monospace;
 }
 
 pre {
-    overflow-x: auto;
+  overflow-x: auto;
 }

@@ -3,30 +3,30 @@ layout: default
 ---
 
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post-header">
-        <h1 class="headline" itemprop="name headline">{{ page.title }}</h1>    
-    </header>
-    <div class="post-content" itemprop="articleBody">
-        {{ content }}
-    </div>
-    <ul class="post-list">
-        {%- for post in site.posts -%}
-            {%- for name in post.categories -%}
-                {%- assign upper = name | upcase -%}
-                {%- if page.title == upper -%}
-                    <li>
-                        <span class="post-meta">
-                            <time datetime="{{ post.date | date: '%F' }}" itemprop="datePublished">
-                            {{ post.date | date: site.date_format }}
-                            </time>
-                        </span>
-                        <span class='post-link'>
-                            <a  href='{{ post.url }}'>{{ post.title }}</a>
-                        </span>
-                    </li>
-                {%- endif -%}
-            {%- endfor -%}
-        {%- endfor -%}
-    </ul>
-    <a href="{{ page.url | relative_url }}" hidden></a>
+  <header class="post-header">
+    <h1 class="headline" itemprop="name headline">{{ page.title }}</h1>    
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+  <ul class="post-list">
+    {%- for post in site.posts -%}
+      {%- for name in post.categories -%}
+        {%- assign upper = name | upcase -%}
+        {%- if page.title == upper -%}
+          <li>
+            <span class="post-meta">
+              <time datetime="{{ post.date | date: '%F' }}" itemprop="datePublished">
+                {{ post.date | date: site.date_format }}
+              </time>
+            </span>
+            <span class='post-link'>
+              <a  href='{{ post.url }}'>{{ post.title }}</a>
+            </span>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endfor -%}
+  </ul>
+  <a href="{{ page.url | relative_url }}" hidden></a>
 </article>

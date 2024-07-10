@@ -6,28 +6,28 @@ word: 60
 
 <h1 class="headline">{{ site.description }}</h1>
 <section class="post-section" role="navigation">
-    {%- for post in site.posts limit: page.limit -%}
-    <article class="post-preview" itemscope itemtype="http://schema.org/BlogPosting">
-        <header class="post-header">
-            <h2 class="post-title">
-                <a class="post-link" href="{{ post.url | relative_url }}">
-                    {{ post.title | smartify }}
-                </a>
-            </h2>
-            <p class="post-meta">
-                <time datetime="{{ post.date | date: '%F' }}" itemprop="datePublished">
-                  {{ post.date | date: site.date_format }}
-                </time>
-            </p>
-        </header>
-        <div class="post-content" itemprop="articleBody">
-            <p>{{ post.brief | default: post.excerpt | strip_html | truncatewords: page.word | smartify }}</p>
-        </div>
-        {%- if post.teaser -%}
-        <footer class="post-teaser">
-            <img src="{{ post.teaser }}" alt="{{ post.date | date: '%F' }}"/>
-        </footer>
-        {%- endif -%}
-    </article>
-    {%- endfor -%}
+  {%- for post in site.posts limit: page.limit -%}
+  <article class="post-preview" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+      <h2 class="post-title">
+        <a class="post-link" href="{{ post.url | relative_url }}">
+          {{ post.title | smartify }}
+        </a>
+      </h2>
+        <p class="post-meta">
+          <time datetime="{{ post.date | date: '%F' }}" itemprop="datePublished">
+            {{ post.date | date: site.date_format }}
+          </time>
+        </p>
+    </header>
+    <div class="post-content" itemprop="articleBody">
+      <p>{{ post.brief | default: post.excerpt | strip_html | truncatewords: page.word | smartify }}</p>
+    </div>
+    {%- if post.teaser -%}
+    <footer class="post-teaser">
+      <img src="{{ post.teaser }}" alt="{{ post.date | date: '%F' }}"/>
+    </footer>
+    {%- endif -%}
+  </article>
+  {%- endfor -%}
 </section>

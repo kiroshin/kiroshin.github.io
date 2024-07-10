@@ -298,7 +298,11 @@ article.post {
 }
 
 article.category {
+  .post-list {
+    padding: 0;
+  }
   .post-meta {
     flex-direction: column;
+    padding-bottom: 0;
   }
 }

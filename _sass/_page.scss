@@ -55,6 +55,9 @@ aside.post-teaser img {
   @media screen and (min-width: $screen-tablet) {
     font-size: $text-font-size-large;
   }
+  @media screen and (min-width: $screen-desk) {
+    font-size: $text-font-size-extra;
+  }
   p {
     text-align : justify;
     word-break: break-all;

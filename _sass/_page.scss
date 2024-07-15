@@ -171,6 +171,7 @@ code {
 .highlight {
   border-radius: $radius-tiny-size;
   background: $bg-code-color;
+  margin: $layout-gap 0;
   pre {
     letter-spacing: 0 !important;
     line-height: 1.25 !important;

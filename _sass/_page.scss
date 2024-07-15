@@ -156,9 +156,8 @@ svg {
 // ============================================================
 code.language-plaintext {
   background-color: $bg-code-color;
-  border: 1px solid $line-color;
   border-radius: $radius-tiny-size;
-  padding: 4px;
+  padding: 0 4px;
   font-size: 0.9em;
 }
 
@@ -171,7 +170,7 @@ code {
 .highlight {
   border-radius: $radius-tiny-size;
   background: $bg-code-color;
-  margin: $layout-gap 0;
+  margin: $unit-gap 0;
   pre {
     letter-spacing: 0 !important;
     line-height: 1.25 !important;

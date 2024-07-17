@@ -45,7 +45,7 @@ ViewController  ──     Delegate     ──  CoreData      : iOS
 - [Clean Architecture for SwiftUI](https://nalexn.github.io/clean-architecture-swiftui/)
 - [Clean Architecture for SwiftUI - Korean](https://gon125.github.io/posts/SwiftUI를-위한-클린-아키텍처/)
 
-상태 처리 문제를 `Redux` 와 비슷하게 `single source of truth` 로 해결했더군요. 정말 훌륭합니다. 큰 도움이 되었고 감동했습니다. 또한 뷰 코디네이터에 대한 견해도 저와 완전히 일치했습니다. 저는 명령형 UI를 사용하던 시기에 라우터를 통해 뷰를 관리한 적이 있는데, 기대와는 달리 유지보수에 아무런 도움이 되지 않아 폐기한 적이 있습니다. 선언형 UI 에서는 더더욱 필요 없습니다. 한편, 인젝션과 인터랙터 처리 부분은 그리 마음에 들지 않았습니다. 조금 더 단순하면 좋겠습니다.
+상태 처리 문제를 `Redux` 와 비슷하게 `single source of truth` 로 해결했더군요. 정말 훌륭합니다. 큰 도움이 되었고 감동했습니다. 뷰 코디네이터에 대한 견해도 저와 완전히 일치했습니다. 저는 명령형 UI를 사용하던 시기에 라우터를 통해 뷰를 관리한 적이 있는데, 기대와는 달리 유지보수에 아무런 도움이 되지 않아 폐기한 적이 있습니다. 선언형 UI 에서는 더더욱 필요 없습니다. 한편, 인젝션과 인터랙터 처리 부분은 그리 마음에 들지 않았습니다. 조금 더 단순하면 좋겠습니다.
 
 앞서 소개한 것과 비슷하지만 좀더 복잡한 [TCA](https://github.com/pointfreeco/swift-composable-architecture) 라는 단방향 아키텍처도 있습니다. 라이브러리까지 깔아야 합니다. 흐음...
 

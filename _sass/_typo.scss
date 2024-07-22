@@ -148,6 +148,8 @@ kbd,
 samp,
 pre {
   font-family: $monospace;
+  unicode-bidi: embed;
+  white-space: pre;
 }
 
 pre {

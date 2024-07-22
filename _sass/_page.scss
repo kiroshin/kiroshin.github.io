@@ -51,7 +51,7 @@ aside.post-teaser img {
 .post-content {
   font-family: "Noto Serif KR", $serif;
   font-size: $text-font-size-medium;
-  line-height: 1.6;
+  line-height: 1.7;
   @media screen and (min-width: $screen-tablet) {
     font-size: $text-font-size-large;
   }
@@ -65,7 +65,7 @@ aside.post-teaser img {
   li {
     font-family: $sans-serif;
     font-size: $text-font-size-medium;
-    line-height: 1.4;
+    line-height: 1.5;
   }
   blockquote p {
     text-align : left;
@@ -88,7 +88,7 @@ aside.post-teaser img {
   }
   .post-content {
     font-size: $text-font-size-medium;
-    line-height: 1.4;
+    line-height: 1.6;
   }
 }
 

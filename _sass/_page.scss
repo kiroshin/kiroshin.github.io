@@ -155,9 +155,11 @@ svg {
 // code
 // ============================================================
 code.language-plaintext {
+  border: 1px solid $bg-code-color;
   background-color: $bg-sidebar-color;
   border-radius: $radius-tiny-size;
   padding: 0 4px;
+  margin: 0 2px;
   font-size: 0.95em;
 }
 

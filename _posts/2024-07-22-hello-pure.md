@@ -31,8 +31,8 @@ brief: 저는 클린 아키텍처의 기본 개념에 앱상태를 좀 간략히
 - Statefull `View`, Stateless `Show`
 - 양방향도 괜찮아!
 
-> Android: <https://github.com/kiroshin/PureAOS>
-> iOS: <https://github.com/kiroshin/PureIOS>
+> * Android: <https://github.com/kiroshin/PureAOS>
+> * iOS: <https://github.com/kiroshin/PureIOS>
 
 
 ## 종합 컨테이너 `Vessel`

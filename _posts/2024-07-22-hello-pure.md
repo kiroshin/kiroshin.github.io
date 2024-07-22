@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 단순하고 직관적으로 설계하고 있어요.
+title: 단순하고 직관적인 아키텍처
 categories: [Swift, Kotlin]
 tags: [architecture, pure, simple, clean]
 teaser:
@@ -33,14 +33,15 @@ brief: 저는 클린 아키텍처의 기본 개념에 앱상태를 좀 간략히
 - Statefull `View`, Stateless `Show`
 - 양방향도 괜찮아!
 
-> * https://github.com/kiroshin/PureAOS
-> * https://github.com/kiroshin/PureIOS
+> * <https://github.com/kiroshin/PureAOS>
+> * <https://github.com/kiroshin/PureIOS>
 
 
 ## 종합 컨테이너 `Vessel`
 
 
 ```kotlin
+// Android
 class MainActivity : ComponentActivity() {
     private lateinit var service: Vessel
 
@@ -57,6 +58,7 @@ class MainActivity : ComponentActivity() {
 ```
 
 ```swift
+// iOS
 @main
 struct MainApp: App {
     let service = Vessel()
@@ -81,7 +83,6 @@ struct MainApp: App {
 
 ```kotlin
 // Serving.kt
-
 interface Serving {
     val appState: AppState
     val loadPersonAction: LoadPersonUsecase
@@ -96,7 +97,6 @@ typealias MoveHereUsecase = suspend (Boolean, Boolean) -> String
 
 ```swift
 // Working.swift
-
 protocol PersonWebWork {
     func getAllPerson() async throws -> [Person]
     func walk(isLeg: Bool) async throws -> String
@@ -121,10 +121,10 @@ protocol PersonDBWork {
 ```
 ╔═[ AppState ]═╗╔═[ Repository ]═╗╔═[ Repository ]═╗
 ╚════╤═════════╝╚═══════╤════════╝╚═════════╤══════╝
-     └─┬────────────────┼──────────────┬────┘
-╔═[ Usecase ]═╗ ╔═[ Usecase ]═╗ ╔═[ Usecase ]═╗
-╚══════╤══════╝ ╚═══════╤═════╝ ╚══════╤══════╝
-       └────────────────┼──────────────┘
+     └─┬──────────┬─────┴────────┬──────────┴────┐
+       │  ╔═[ Usecase ]═╗ ╔═[ Usecase ]═╗ ╔═[ Usecase ]═╗
+       │  ╚══════╤══════╝ ╚═══════╤═════╝ ╚══════╤══════╝
+       └─────────┴──────┬─────────┴──────────────┘
                ╔══[ Container ]═╗
                ╚════════════════╝
                ┌────────┴───────┐
@@ -157,9 +157,11 @@ class GetMovieInfoUsecase {
 }
 ```
 
-그룹이든 행위든 유지관리에 큰 차이가 있는 것은 아닙니다. 서버라면 백엔드로 들어가는 요구 스펙이 정해진 경우가 많기 때문에 그룹 형태가 낫겠지만, 앱이라면 `Clean` 의 방법이 나을지도 모릅니다. 왜냐면 분류하기 애매한 행위도 고민 없이 유스케이스 폴더에 던져넣을 수 있기 때문입니다. 가끔 그런 복합적인 행위를 만나게 되는데요, 예를 들어 Mute 라는 액션은 VoiceService 에 넣어야 할까요 EffectService 에 넣어야 할까요? 애초부터 SoundService 라고 만들었으면 문제가 없었겠죠! 그래서 행위 형태가 약간 더 유연합니다. 다만, 폴더를 열어 시스템의 동작을 한눈에 파악하기는 편하지만, 파일이 쪼개지기 때문에 인젝션으로 인한 파일 구성이 복잡할 수 있습니다.
+그룹이든 행위든 유지관리에 큰 차이가 있는 것은 아닙니다. 서버라면 백엔드로 들어가는 요구 스펙이 정해진 경우가 많기 때문에 그룹 형태가 좋지만, 앱이라면 `Clean` 의 방법이 나을지도 모릅니다. 왜냐면 분류하기 애매한 행위도 고민 없이 유스케이스 폴더에 던져넣을 수 있기 때문입니다.
 
-유스케이스 형태는 하나의 집합적인 일을 하는 단품 서비스입니다. 이건 SAM(Single Abstract Method)과 다르지 않습니다.
+가끔 그런 복합적인 행위를 만나게 되는데요, 예를 들어 Mute 라는 액션은 VoiceService 에 넣어야 할까요 EffectService 에 넣어야 할까요? 애초부터 SoundService 라고 만들었으면 문제가 없었겠죠! 그래서 행위 형태가 약간 더 유연합니다. 다만, 폴더를 열어 시스템의 동작을 한눈에 파악하기는 편하지만, 파일이 쪼개지기 때문에 인젝션으로 인한 파일 구성이 복잡할 수 있습니다.
+
+유스케이스 형태는 하나의 집합적인 일을 하는 단품 서비스입니다. 이건 `SAM`(Single Abstract Method)과 다르지 않습니다.
 
 ```java
 @FunctionalInterface
@@ -168,13 +170,15 @@ public interface Runnable {
 }
 ```
 
-자바 쓰레딩에 흔하게 사용되는 러너블을 생각하면 됩니다. 익명클래스는 곧 람다로 대체됩니다. 유스케이스도 마찬가지로 굳이 클래스일 필요가 없습니다. 자바와는 달리 코틀린과 스위프트는 파일명과 클래스명에 대한 제약도 없고, 확장함수까지 지원합니다. 함수 자체를 파일로 분리할 수 있고 본체의 프로퍼티에 접근해 필요한 소스를 그냥 가져오면 되니까 인젝션도 필요없게 되죠.
+자바 쓰레딩에 흔하게 사용되는 러너블을 생각하면 됩니다. 익명클래스는 곧 람다로 대체됩니다. 유스케이스도 마찬가지로 굳이 클래스일 필요가 없습니다.
 
-그래서 서비스를 요청하면 클래스가 아니라 함수 포인터를 꽂아주어도 이상하지 않습니다. 워커를 lazy 처리할 경우 한 번 호출한 뒤 반환하면 되고, weak 처리할 경우 호출한 뒤 람다에 캡쳐해서 반환하면 됩니다. 즉 베쓸의 워커 관리 계획에 따라 유스케이스의 반환 형태를 달리 작성해주면 되는 것이죠. 코드를 봅시다!
+자바와는 달리 코틀린과 스위프트는 파일명과 클래스명에 대한 제약도 없고, 확장함수까지 지원합니다. 함수 자체를 파일로 분리할 수 있고 본체의 프로퍼티에 접근해 필요한 소스를 그냥 가져오면 되니까 인젝션도 필요없게 되죠.
+
+서비스를 요청하면 클래스가 아니라 함수 포인터를 꽂아주어도 이상하지 않습니다. 워커를 lazy 처리할 경우 한 번 호출한 뒤 반환하면 되고, weak 처리할 경우 호출한 뒤 람다에 캡쳐해서 반환하면 됩니다. 즉 베쓸의 워커 관리 계획에 따라 유스케이스의 반환 형태를 달리 작성해주면 되는 것이죠. 코드를 봅시다!
 
 ```kotlin
 // Vessel.kt
-class Vessel(context: Context): MutableStore<Roger> by MutableStateFlow(Roger()), Serving  {
+class Vessel(context: Context): Serving  {
     val personDBWork: PersonDBWork = PersonDBRepository(context, ...)
     val personWebData: PersonWebWork by lazy { PersonWebRepository() }
     ...
@@ -195,7 +199,7 @@ suspend fun Vessel.moveHere(isLeg: Boolean, isWing: Boolean): String { ... }
 
 ```swift
 // Vessel.swift
-final class Vessel: MutableStore<Roger>, Serving {
+final class Vessel: Serving {
     let personDBWork: PersonDBWork = PersonDBRepository()
     lazy var personWebWork: PersonWebWork = PersonWebRepository()
     ...
@@ -214,7 +218,7 @@ extension Vessel {
 }
 ```
 
-베쓸은 프로퍼티로 유스케이스를 제공할 때 람다를 반환할지 내부함수를 반환할지 결정할 수 있습니다. 게다가 유스케이스가 워커 함수를 단순 연결하는 경우에도 간편합니다. 이 형태는 구성상 typealias 만 정의하면 인터페이스를 따로 만들지 않아도 되기 때문에 매우 유연합니다. 서비스 목적만 달성하면 되니까 클래스냐 아니냐는 중요하지 않습니다! 저는 이것이 Usecase 의 형태에 더 적합하다고 생각합니다.
+베쓸은 프로퍼티로 유스케이스를 제공할 때 람다를 반환할지 내부함수를 반환할지 결정할 수 있습니다. 게다가 유스케이스가 워커 함수를 단순 연결하는 경우에도 간편합니다. 이 형태는 구성상 typealias 만 정의하면 인터페이스를 따로 만들지 않아도 되기 때문에 매우 유연합니다. 서비스 목적만 달성하면 되니까 클래스냐 아니냐는 중요하지 않습니다! 저는 이것이 Usecase 의 형태에 더 적합하다고 생각합니다. 이상하게도, 클린아키텍처 형태로 구성했다는 수많은 샘플들을 검토해봤지만 이렇게 하는 경우를 본 적이 없네요.
 
 
 ## 관찰 가능한 전역 상태 `AppState`
@@ -258,23 +262,29 @@ extension Roger {
 
 
 ```kotlin
+// DetailViewModel.kt
 class DetailViewModel(service: Serving, destID: PersonIdType): ViewModel() {
-    val isRegionStored = service.appState.stored { it.field.isRegion }
+    val isRegionStored = service.appState
+                                  .stored { it.field.isRegion }
     ...
 }
 
 typealias Stored<T> = Flow<T>
 
-inline fun <T, R> Flow<T>.stored(crossinline transform: suspend (value: T) -> R): Stored<R> = map(transform).distinctUntilChanged()
+inline fun <T, R> Flow<T>.stored(crossinline transform: suspend (value: T) -> R): Stored<R>
+= map(transform).distinctUntilChanged()
 ```
 
 ```swift
+// DetailView.swift
 extension DetailView {
   final class ViewModel: ObservableObject {
       @Published var isRegion: Bool = true
 
       init(_ service: Serving, idnt: Person.ID) {
-          service.appState.stored(keyPath: \.field.isRegion).give(to: &$isRegion)
+          service.appState
+           .stored(keyPath: \.field.isRegion)
+           .give(to: &$isRegion)
           ...
       }
   }
@@ -342,7 +352,7 @@ final class Raft: Serving, @unchecked Sendable {
 
 유스케이스의 대부분은 `Action` 이 되겠죠. 사용자의 Request 에 대해 어떤 식으로든 반응을 해줘야 하니까요. 액션은 모든 서비스가 다 그렇듯이 비스니스 로직에 따른 제어흐름은 탑니다. 즉 제어 코드만 있는 날씬한 어댑터입니다. 그리하여 최종적으로, 작업의 결과를 반환할 것인지 앱상태를 갱신할 것인지 아니면 둘 다 할 것인지 결정할 수 있습니다.
 
-`Clean`으로 구성했다는 프로젝트 샘플들을 보면 가끔 유스케이스의 인자로 아웃풋포트 객체를 함께 넣는 것을 보게 됩니다. 아웃풋포트는 뷰 갱신 컴플리션 핸들러입니다. 코루틴을 이용하면 컴플리션 핸들러가 필요 없어지고 우리는 앱상태도 가지고 있기 때문에 아웃풋 포트를 구성하는 건 의미가 없습니다.
+`Clean`으로 구성했다는 프로젝트 샘플들을 보면 가끔 유스케이스의 인자로 아웃풋포트 객체를 함께 넣는 것을 보게 됩니다. 아웃풋포트는 뷰 갱신 컴플리션 핸들러입니다. 코루틴을 이용하면 컴플리션 핸들러가 필요 없어지고 우리는 앱상태도 가지고 있기 때문에 아웃풋 포트를 구성하는 건 더더욱 의미가 없습니다.
 
 
 ## 잠깐 거쳐가는 도메인 모델
@@ -385,11 +395,11 @@ private extension HTTPRandomuserAccess.User {
 }
 ```
 
-도메인 엔티티와 워커 개별 엔티티는 구별해야 합니다. 지금은 동일해 보일지는 몰라도 미래에는 일치하지 않게 됩니다. 흔한 일은 아니지만 DB 의 튜닝이나 관계형 설정에 따라 테이블을 변경할 일도 생기니까요. 그리고 이렇게 구별하는 것이 의존성 방향에 맞습니다.
+도메인 엔티티와 워커 개별 엔티티는 구별해야 합니다. 지금은 동일해 보일지는 몰라도 미래에는 일치하지 않게 됩니다. 흔한 일은 아니지만 DB 의 튜닝이나 관계형 설정에 따라 테이블을 변경할 일도 생기니까요. 그리고 이렇게 구별하는 것이 의존성 방향에 맞습니다. 샘플 앱에서는 직관적으로 보여주기 위해 관계형으로 구성하지 않았습니다. 그래서 더욱 비슷하게 보일 수는 있습니다. 실제 앱에서 이렇게 단순하게 구성하는 경우는 거의 없습니다.
 
 도메인 Entity 는 순수하게 유지하는 것이 정신건강에 좋습니다. 문자열, 숫자, 배열 등 기본 타입으로만 제한하면 다른 타입으로 바꿀 때도 좋습니다. SQLite 나 JSON 을 기준으로 삼아도 괜찮습니다. 저는 엔티티에 `Date` 타입도 사용하지 않습니다. 그걸 DTO로 매핑할 때 다시 날짜타입으로 바꿉니다. 이 정도 오버헤드는 아무 것도 아닙니다.
 
-도메인 맵퍼에서는 `UTIL` 을 사용할 수도 있습니다. 유틸은 랭귀지의 스탠다드 라이브러리나 퍼스트가 제공하는 로직 프레임워크의 서브클래스 혹은 확장함수를 담습니다. 예를 들어 String Extention 이나 Flow/Combine 의 새로운 오퍼레이터 종류 등이 이에 해당합니다.
+도메인 맵퍼에서는 `UTIL` 을 사용할 수도 있습니다. 유틸은 랭귀지의 스탠다드 라이브러리나 퍼스트가 제공하는 로직 프레임워크의 서브클래스 혹은 확장함수를 담습니다. 예를 들어 `String` Extention 이나 `Flow` / `Combine` 의 새로운 오퍼레이터 종류 등이 이에 해당합니다.
 
 샘플 앱을 보면 `Model` 폴더에 특이하게도 에러 타입 `Fizzle` 이 정의되어 있는 것을 볼 수 있습니다.
 
@@ -432,23 +442,17 @@ enum Fizzle: LocalizedError {
 
 ## Statefull `View`, Stateless `Show`
 
-뷰나 뷰모델의 경우도 가시권이 `SHOW` 를 비롯해 도메인 모델과 유틸을 포함합니다. 쇼는 `UiKit` 클래스를 재정의 하거나, `SwiftUI` 나 `Composable` 단품 뷰를 정의하게 되는 시스템에 독립적인 UI Component 입니다. 예시 프로젝트 내부에는 `Show Util Gear` 가 함께 있지만 별개 라이브러리로 빠져도 상관없습니다. 독립적이니까요.
+뷰나 뷰모델의 경우도 가시권이 `SHOW` 를 비롯해 도메인 모델과 유틸을 포함합니다. 쇼는 `UiKit` 클래스를 재정의 하거나, `SwiftUI` 나 `Composable` 단품 뷰를 정의하게 되는 시스템 독립적인 UI Component 입니다. 예시 프로젝트 내부에는 `Show Util Gear` 가 함께 있지만 별개 라이브러리로 빠져도 상관없습니다. 독립적이니까요.
 
 ![Butterfly](/assets/architecture-butterfly.svg)
 
 예전에는 라우터를 만들어서 뷰를 런칭하곤 했습니다. 그랬던 이유는 Ui Controller 간 의존성을 없애고 구성 시 필요한 각종 객체를 주입하기 위해서였습니다. 명령형 UI 에서는 한 화면을 구성하기 위해 컨트롤러 내부에서 해야 될 작업이 굉장히 많습니다. UI빌더로 XML 형태의 닙을 만들어 세부 설정을 하는 경우도 있었고, 레이아웃만 잡은 뒤 코드로 올리고 컨트롤 하는 경우가 많았습니다. 차일드를 독립시켜 재활용 하기 위해 뷰모델을 주입하는 경우도 있었죠.
 
-선언형 UI 의 권고 사항은 뷰 구성에 참 많은 아이디어를 줍니다. 어느 정도 경험치가 쌓이면 알게되는 것인데, 차일드를 독립시키려고 하면 할수록 우리의 기대와는 반대로 구성이 복잡해지고 수정할 때 불편해진다는 것입니다.
+그러나 차일드 컨트롤러로 독립시킬수록 우리의 기대와는 다르게 구성이 복잡해지고 수정할 때 불편해진다는 것을 어렵지 않게 경험하게 됩니다. 차라리 재활용을 깔끔하게 포기하고 컴포넌트의 재활용을 극대화하는 건 어떨까요? 저는 UI구성 시 한 화면을 구성하는 바닥 판을 Screen 폴더에 넣고 있습니다. Ui Controller 인 거죠. 이 컨트롤러 뷰는 한 화면 전부를 담당하고 한 개의 뷰모델만 가지게 제약을 했습니다. 말하자면 바닥의 뷰만 상태를 가지며, 나머지는 상태를 가질 수 없는 것입니다. 선언형 UI 의 권고 사항은 뷰 구성에 참 많은 아이디어를 줍니다.
 
-`Ui Controller` 의 재활용을 깔끔하게 포기하고, 대신 그 상태를 조정함으로써 차일드 컴포넌트의 재활용을 극대화하는 건 어떨까요? 저는 UI구성 시 한 화면을 구성하는 바닥 판을 Screen 폴더에 넣고 있습니다. Ui Controller 인 거죠. 이 컨트롤러 뷰는 한 화면 전부를 담당하고 한 개의 뷰모델만 가지게 제약을 했습니다. 말하자면 바닥의 뷰만 상태를 가지며, 나머지는 상태를 가질 수 없는 것입니다.
+쇼가 유틸을 사용할 수도 있고, 간혹 기어가 컴포넌트를 만들어주는 경우도 있을 것입니다(이럴 경우 기어는 싱글톤으로 쓰이거나 단순 함수 형태일 것입니다). 그럼에도 가시권이 내부를 향하지 않기 때문에 다른 프로젝트에서 완전히 재활용 가능합니다. 이런 형태는 스크린을 구성하는 Ui Controller에서 수많은 쇼 컴포넌트를 끌어와 구성하고 바인딩 값을 넣어줘야 하기 때문에 약간 번거로울 수 있습니다. 그럼에도 불구하고 이 단순한 규칙은 매우 큰 효과를 냅니다.
 
-쇼가 유틸을 사용할 수도 있고, 간혹 기어가 컴포넌트를 만들어주는 경우도 있을 것입니다(이럴 경우 기어는 싱글톤으로 쓰이거나 단순 함수 형태일 것입니다). 그럼에도 가시권이 내부를 향하지 않기 때문에 다른 프로젝트에서 완전히 재활용 가능합니다.
-
-이런 형태는 스크린을 구성하는 Ui Controller에서 수많은 쇼 컴포넌트를 끌어와 구성하고 바인딩 값을 넣어줘야 하기 때문에 약간 번거로울 수 있습니다. 그럼에도 불구하고 이 단순한 규칙은 매우 큰 효과를 냅니다.
-
-컴포넌트를 구성할 때 정말 다목적으로 사용하기 위해 극도로 일반화하는 경우가 있습니다. 그런데 이러면 Configurator 구성이 매우 복잡해져 오히려 사용성이 떨어집니다. 적당한 목적에 맞는 적당히 다양한 컴포넌트를 만드세요. 기능이 약간 중복되어도 괜찮습니다.
-
-현재의 화면 구성이 Alert 이나 Sheet 같은 데에서 완전히 동일하게 쓰일지라도 시간이 지나면 조금씩 달라지는 경우가 많습니다. 완전한 재활용을 기대했지만 실제로는 그렇게 되지 않습니다. 그래서 `의도적 중복`은 나쁘지 않습니다.
+컴포넌트를 구성할 때 정말 다목적으로 사용하기 위해 극도로 일반화하는 경우가 있습니다. 그런데 이러면 Configurator 구성이 매우 복잡해져 오히려 사용성이 떨어집니다. 적당한 목적에 맞는 적당히 다양한 컴포넌트를 만드세요. 기능이 약간 중복되어도 괜찮습니다. 현재의 화면 구성이 Alert 이나 Sheet 같은 데에서 완전히 동일하게 쓰일지라도 시간이 지나면 조금씩 달라지는 경우가 많습니다. 완전한 재활용을 기대했지만 실제로는 그렇게 되지 않습니다. 그래서 `의도적 중복`은 나쁘지 않습니다.
 
 
 ## 양방향도 괜찮아!

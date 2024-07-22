@@ -162,11 +162,6 @@ code.language-plaintext {
   font-size: $text-font-size-medium;
 }
 
-code {
-  text-align: start !important;
-  word-break: normal !important;
-}
-
 .highlight {
   border-radius: $radius-tiny-size;
   background: $bg-code-color;

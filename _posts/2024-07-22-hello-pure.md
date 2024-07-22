@@ -27,7 +27,7 @@ brief: 저는 클린 아키텍처의 기본 개념에 앱상태를 좀 간략히
 - 관찰 가능한 전역 상태 `AppState`
 - 상태변화는 `Action`, 자료읽기는 `Query`
 - 잠깐 거쳐가는 도메인 모델
-- `Worker`에 `Gear`  부착
+- `Gear` 는 `Worker`를 움직이는 힘
 - Statefull `View`, Stateless `Show`
 - 양방향도 괜찮아!
 

@@ -273,7 +273,7 @@ inline fun <T, R> Flow<T>.stored(crossinline transform: suspend (value: T) -> R)
 ```
 
 ```swift
-// DetailView.swift
+// DetailViewModel.swift
 extension DetailView {
   final class ViewModel: ObservableObject {
       @Published var isRegion: Bool = true

@@ -155,17 +155,15 @@ svg {
 // code
 // ============================================================
 code.language-plaintext {
-  border: 1px solid $bg-code-color;
   background-color: $bg-sidebar-color;
   border-radius: $radius-tiny-size;
-  padding: 0 4px;
-  margin: 0 2px;
-  font-size: 0.95em;
+  padding: 0 8px;
+  margin: 0 1px;
+  font-size: $text-font-size-medium;
 }
 
 code {
-  letter-spacing: 0 !important;
-  text-align : left !important;
+  text-align: start !important;
   word-break: normal !important;
 }
 
@@ -173,10 +171,10 @@ code {
   border-radius: $radius-tiny-size;
   background: $bg-code-color;
   margin: $unit-gap 0;
+  padding: 2px;
   pre {
-    letter-spacing: 0 !important;
     line-height: 1.25 !important;
     font-size: $text-font-size-small !important;
-    margin: 8px;
+    margin: 4px;
   }
 }

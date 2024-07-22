@@ -441,7 +441,7 @@ enum Fizzle: LocalizedError {
 
 ## Statefull `View`, Stateless `Show`
 
-뷰나 뷰모델의 경우도 가시권이 `SHOW` 를 비롯해 도메인 모델과 유틸을 포함합니다. 쇼는 `UiKit` 클래스를 재정의 하거나, `SwiftUI` 나 `Composable` 단품 뷰를 정의하게 되는 시스템 독립적인 UI Component 입니다. 예시 프로젝트 내부에는 `Show` - `Util`- `Gear` 가 함께 있지만 별개 라이브러리로 빠져도 상관없습니다. 독립적이니까요.
+뷰나 뷰모델의 경우도 가시권이 `SHOW` 를 비롯해 도메인 모델과 유틸을 포함합니다. 쇼는 `UiKit` 클래스를 재정의 하거나, `SwiftUI` 나 `Composable` 단품 뷰를 정의하게 되는 시스템 독립적인 UI Component 입니다. `Show-Util-Gear` 는 별개의 지원 라이브러리로 빠져도 상관없습니다. 이 세트는 본 프로젝트와 독립적입니다.
 
 ![Butterfly](/assets/architecture-butterfly.svg)
 

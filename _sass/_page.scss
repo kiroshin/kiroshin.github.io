@@ -170,8 +170,11 @@ code.language-plaintext {
   padding: .3em;
   pre {
     line-height: 1.25 !important;
-    font-family: Menlo, $monospace;
     font-size: $text-font-size-small !important;
     margin: 4px;
+  }
+  code {
+    font-family: Menlo, $monospace;
+    
   }
 }

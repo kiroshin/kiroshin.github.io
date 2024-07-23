@@ -491,15 +491,13 @@ struct DetailView: View {
 
 ```kotlin
 // Android Navigator
-NavHost(navController = navController, startDestination = Navi.Home.route, modifier = modifier) {
+NavHost(navController = navController, ...) {
     composable(Navi.Home.route) {
-        onTitleChange("Home")
         HomeView(service, launcher = { id ->
             navController.navigate(Navi.Detail.route + "/$id")
         } )
     }
     composable(Navi.Detail.route + "/{id}") {
-        onTitleChange("Detail")
         it.arguments?.getString("id")?.let {
             DetailView(service, target = it)
         }
@@ -511,21 +509,12 @@ NavHost(navController = navController, startDestination = Navi.Home.route, modif
 // iOS Navigator
 @ViewBuilder func homeView() -> some View {
     HomeView(service)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Toggle(isOn: $isRegion, label: { EmptyView() }).toggleStyle(.switch)
-            }
-        }.navigationDestination(for: Person.ID.self) { uid in
+        .navigationDestination(for: Person.ID.self) { uid in
             detailView(uid: uid)
-        }.navigationTitle("Home")
+        }
 }
 @ViewBuilder func detailView(uid: Person.ID) -> some View {
     DetailView(service, target: uid)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Toggle(isOn: $isRegion, label: { EmptyView() }).toggleStyle(.switch)
-            }
-        }.navigationTitle("Detail")
 }
 ```
 

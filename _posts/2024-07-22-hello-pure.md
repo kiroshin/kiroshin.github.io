@@ -489,6 +489,44 @@ struct DetailView: View {
 
 이렇게 해도 문제가 없는 건 우리가 이미 컨테이너 구성을 끝냈기 때문입니다. 이제 서비스가 뷰트리에 의해 좌지우지 되지는 않습니다. 게다가 네비게이터는 뷰모델까지 신경쓰지도 않으니 런칭 구성이 가볍습니다. 이 부분은 매우 중요합니다. 교체를 고려했다면 뷰모델 인터페이스를 만든거나 하다못해 서브클래싱 가능하게 조치를 취했을 것입니다. 그러나 앞서 설명한 구조상 뷰모델 교체는 불필요합니다. 테스트는 컨테이너를 교체함으로써 진행할 겁니다. 뷰모델은 뷰 내부에 있는 final 클래스이며 뷰가 직접 볼 수 있는 뷰의 선택사항일 뿐입니다.
 
+```kotlin
+NavHost(navController = navController, startDestination = Navi.Home.route, modifier = modifier) {
+    composable(Navi.Home.route) {
+        onTitleChange("Home")
+        HomeView(service, launcher = { id ->
+            navController.navigate(Navi.Detail.route + "/$id")
+        } )
+    }
+    composable(Navi.Detail.route + "/{id}") {
+        onTitleChange("Detail")
+        it.arguments?.getString("id")?.let {
+            DetailView(service, target = it)
+        }
+    }
+}
+```
+
+```swift
+@ViewBuilder func homeView() -> some View {
+    HomeView(service)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Toggle(isOn: $isRegion, label: { EmptyView() }).toggleStyle(.switch)
+            }
+        }.navigationDestination(for: Person.ID.self) { uid in
+            detailView(uid: uid)
+        }.navigationTitle("Home")
+}
+@ViewBuilder func detailView(uid: Person.ID) -> some View {
+    DetailView(service, target: uid)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Toggle(isOn: $isRegion, label: { EmptyView() }).toggleStyle(.switch)
+            }
+        }.navigationTitle("Detail")
+}
+```
+
 뷰의 갱신 과정도 MVI 나 TCA 를 반드시 써야 하다고 생각하는 분이 있을 겁니다.
 
 공원을 산책하는데 어린이들이 놀고있는 풋살장 펜스 너머로 축구공이 넘어왔다고 합시다. 공을 다시 뻥 차서 펜스로 넘겨주어야 할까요? 아니면 뒤돌아 가서 펜스 문을 열고 던져주어야 할까요? 뭐가 됐든 상관없지만 트래핑 잘 할 수 있게 주면 그만이겠죠. 기특하게도 어린이들은 공을 잘 받습니다.

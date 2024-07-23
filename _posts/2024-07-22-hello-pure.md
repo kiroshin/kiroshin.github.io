@@ -31,7 +31,7 @@ brief: 저는 클린 아키텍처의 기본 개념에 앱상태를 좀 간략히
 - Statefull `View`, Stateless `Show`
 - 양방향도 괜찮아!
 
-> 예시 프로젝트
+#### 예시 프로젝트
 >> * <https://github.com/kiroshin/PureAOS>
 >> * <https://github.com/kiroshin/PureIOS>
 

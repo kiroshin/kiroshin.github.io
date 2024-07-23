@@ -157,7 +157,6 @@ svg {
 code.language-plaintext {
   background-color: $bg-sidebar-color;
   border-radius: $radius-tiny-size;
-  font-family: Menlo, $monospace;
   font-size: .95em;
   padding-left: .3em;
   padding-right: .3em;
@@ -167,17 +166,10 @@ code.language-plaintext {
   border-radius: $radius-tiny-size;
   background: $bg-code-color;
   margin: $unit-gap 0;
-  padding: .3em;
+  padding: .2em;
   pre {
-    line-height: 1.25 !important;
+    line-height: 1.35 !important;
     font-size: $text-font-size-small !important;
     margin: 4px;
-  }
-  code {
-    font-family: Menlo, $monospace;
-    -webkit-text-size-adjust : none;
-    -ms-text-size-adjust : none;
-    -moz-text-size-adjust : none;
-    -o-text-size-adjust : none;
   }
 }

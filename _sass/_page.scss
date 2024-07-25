@@ -52,6 +52,8 @@ aside.post-teaser img {
   font-family: "Noto Serif KR", $serif;
   font-size: $text-font-size-medium;
   line-height: 1.7;
+  word-break: normal;
+  overflow-wrap: break-word;
   @media screen and (min-width: $screen-tablet) {
     font-size: $text-font-size-large;
   }
@@ -59,8 +61,11 @@ aside.post-teaser img {
     font-size: $text-font-size-extra;
   }
   p {
-    text-align : justify;
-    word-break: break-all;
+    text-align: left;
+    line-break: loose;
+    @media screen and (min-width: $screen-tablet) {
+      text-align: justify;
+    }
   }
   li {
     font-family: $sans-serif;
@@ -69,7 +74,6 @@ aside.post-teaser img {
   }
   blockquote p {
     text-align : left;
-    word-break: normal;
   }
 }
 

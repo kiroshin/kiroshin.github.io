@@ -149,7 +149,6 @@ samp,
 pre {
   font-family: $monospace;
   unicode-bidi: embed !important;
-  text-align: start !important;
   word-spacing: normal !important;
   letter-spacing: normal !important;
   white-space: pre !important;
@@ -157,6 +156,7 @@ pre {
 
 pre {
   overflow-x: auto;
+  text-align: left !important;
 }
 
 code {

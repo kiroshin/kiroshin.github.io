@@ -66,6 +66,9 @@ aside.post-teaser img {
     @media screen and (min-width: $screen-tablet) {
       text-align: justify;
     }
+    code {
+      font-family: $sans-serif;
+    }
   }
   li {
     font-family: $sans-serif;
@@ -148,32 +151,3 @@ aside.post-teaser img {
   color: #C8C9CC;
 }
 
-// svg
-// ============================================================
-svg {
-  display: block;
-  width: 100%;
-  margin: 1em 0;
-}
-
-// code
-// ============================================================
-code.language-plaintext {
-  background-color: $bg-sidebar-color;
-  border-radius: $radius-tiny-size;
-  font-size: .9em;
-  padding-left: .3em;
-  padding-right: .3em;
-}
-
-.highlight {
-  border-radius: $radius-tiny-size;
-  background: $bg-code-color;
-  margin: $unit-gap 0;
-  padding: .2em;
-  pre {
-    line-height: 1.4 !important;
-    font-size: $text-font-size-code !important;
-    margin: 4px;
-  }
-}

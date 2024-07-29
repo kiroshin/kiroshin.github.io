@@ -142,6 +142,15 @@ table {
   }
 }
 
+
+// svg
+// ============================================================
+svg {
+  display: block;
+  width: 100%;
+  margin: 1em 0;
+}
+
 tt,
 code,
 kbd,
@@ -154,6 +163,8 @@ pre {
   white-space: pre !important;
 }
 
+// code
+// ============================================================
 pre {
   overflow-x: auto;
   text-align: left !important;
@@ -165,4 +176,23 @@ code {
   -ms-text-size-adjust: none;
   -moz-text-size-adjust: none;
   -o-text-size-adjust: none;
+  &.language-plaintext {
+    background-color: $bg-sidebar-color;
+    border-radius: $radius-tiny-size;
+    font-size: .9em;
+    padding-left: .3em;
+    padding-right: .3em;
+  }
+}
+
+.highlight {
+  border-radius: $radius-tiny-size;
+  background: $bg-code-color;
+  margin: $unit-gap 0;
+  padding: .2em;
+  pre {
+    line-height: 1.4 !important;
+    font-size: $text-font-size-code !important;
+    margin: 4px;
+  }
 }

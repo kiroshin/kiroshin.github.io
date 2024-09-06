@@ -27,7 +27,7 @@ brief: CMake 는 파이썬 패키지 빌드할 때 가끔 요구하는 경우가
 
 그런데 이 녀석이 제 XCode 를 망가뜨린 적이 있어서, 그 뒤로는 `Homebrew` 를 이용하지 않고 있습니다. 그러다보니 애로사항이 참 많네요. 아무튼, 맥에 CMake 를 직접 설치하려면 홈페이지에 가서 dmg 이미지를 내려받습니다.
 
-* https://cmake.org/download/
+* <https://cmake.org/download/>
 
 아마도 대부분 `macOS 10.13 or later` 의 `cmake-...-macos-universal.dmg` 를 받으면 될 겁니다. 그리고 클릭! 해서 아이콘을 끌고 와 설치합니다. 앱이군요.
 

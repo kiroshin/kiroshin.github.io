@@ -31,7 +31,7 @@ C/C++ 빌드 툴은 홈브류로 `llvm` 을 설치할 수도 있지만 보통은
 
 ![CMake GUI](/assets/cmake-gui.jpg)
 
-이렇게 하면 Cmake Gui 가 깔립니다. 그런데 이 상태로는 터미널에서 이용할 수 없습니다. 이 상태로 터미널에서 `cmake --version` 을 쳐도 없다고 나옵니다. cmake 실행파일은 `/Applications/CMake.app/Contents/bin` 에 들어있습니다. 경로를 연결해주면 터미널에서 사용할 수 있습니다.
+이렇게 하면 CMake Gui 가 깔립니다. 그런데 이 상태로는 터미널에서 이용할 수 없습니다. 이 상태로 터미널에서 `cmake --version` 을 쳐도 없다고 나옵니다. cmake 실행파일은 `/Applications/CMake.app/Contents/bin` 에 들어있습니다. 경로를 연결해주면 터미널에서 사용할 수 있습니다.
 
 ```bash
 $ sudo nano /etc/paths

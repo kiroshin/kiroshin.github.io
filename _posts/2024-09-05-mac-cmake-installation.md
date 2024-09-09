@@ -23,7 +23,7 @@ brief: CMake 는 파이썬 패키지 빌드할 때 가끔 요구하는 경우가
 % brew install cmake
 ```
 
-그런데 이 녀석이 패키지를 설치하다 꼬이면서 XCode 까지 망치더군요(시스템을 더럽히거나 XCode 나 Proj 를 망치면 용서할 수 없습니다! 복구하는 게 너무 힘들어요). 그 뒤로는 `Homebrew` 를 이용하지 않고 있습니다. 그러다보니 애로사항이 참 많네요. 아무튼, 맥에 홈브류 없이 CMake 를 직접 설치하려면 홈페이지에 가서 dmg 이미지를 내려받아야 합니다.
+`Homebrew` 를 이용하지 않고 설치하는 하려면 CMake 홈페이지에 가서 dmg 이미지를 내려받아야 합니다.
 
 * <https://cmake.org/download/>
 
@@ -31,7 +31,7 @@ brief: CMake 는 파이썬 패키지 빌드할 때 가끔 요구하는 경우가
 
 ![CMake GUI](/assets/cmake-gui.jpg)
 
-굳이 이렇게까지... GUI가... 있을 필요가 없을... 뭐, 어쨌든 좋군요. 그런데 제가 원하는 것은 터미널 명령입니다. 이 상태로 터미널에서 `cmake --version` 을 쳐도 없다고 나옵니다. cmake 실행파일은 `/Applications/CMake.app/Contents/bin` 에 들어있습니다. 터미널에서 사용할 수 있게 경로를 연결해주면 됩니다.
+이렇게 하면 Cmake Gui 가 깔립니다. 그런데 이 상태로는 터미널에서 이용할 수 없습니다. 이 상태로 터미널에서 `cmake --version` 을 쳐도 없다고 나옵니다. cmake 실행파일은 `/Applications/CMake.app/Contents/bin` 에 들어있습니다. 경로를 연결해주면 터미널에서 사용할 수 있습니다.
 
 ```bash
 $ sudo nano /etc/paths
@@ -58,6 +58,3 @@ CMake suite maintained and supported by Kitware (kitware.com/cmake).
 ```
 
 잘 나오는군요.
-
-저도 참다 참다 정 불편하면 어쩔 수 없이 `Homebrew` 를 설치하겠지만, 그래도 좀 더 안전한 패키지 관리자가 있었으면 좋겠네요. 이런 건 애플에서 만들어야 합니다!
-

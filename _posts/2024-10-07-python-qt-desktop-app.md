@@ -171,7 +171,7 @@ async def get_person(self, uid: PersonID) -> Person:
 
 그리고 working 을 구현하는 이 객체들은 상호 의존성이 없습니다.
 
-이 메서드는 working 요구사항을 충족하기 위해 구현된 것으로, 주된 작업은 db에서 자료를 빼오고 이 과정에서 photo 가 캐시에 없으면 내려받는 일입니다. 어쩌면 local 은 photo 를 인터넷에서 내려받기 위해 web 이 필요할 수 있습니다. 그러나 local_repository 와 web_repository 는 수평관계로, 서로 참조할 수 없습니다. local 에서 http 통신이 필요하면 web 이 가지고 있는 네트워크 기어를 통해 수행해야 합니다. repository 는 working 을 충족시키기 위한 객체이며 usecase 에서만 호출됩니다. 공통 로직이 필요하면 그걸 처리하는 객체를 공유하십시오.
+이 메서드는 working 요구사항을 충족하기 위해 구현된 것으로, 주된 작업은 db에서 자료를 빼오고 이 과정에서 photo 가 캐시에 없으면 내려받는 일입니다. 어쩌면 local 은 photo 를 인터넷에서 내려받기 위해 web 이 필요할 수 있습니다. 그러나 `local_repository` 와 `web_repository` 는 수평관계로, 서로 참조할 수 없습니다. local 에서 http 통신이 필요하면 기어를 통해 수행해야 합니다. repository 는 usecase 에서만 호출할 수 있습니다. 만약 공통 로직이 필요하면 그걸 처리하는 객체를 공유하십시오.
 
 ```python
 # vessel.py

@@ -138,7 +138,11 @@ def build_app_data_action(self: Vessel) -> BuildAppDataUsecase:
 
 ## worker
 
-워커는 GEAR 를 이용하여 실제 작업을 수행합니다. 그래서 GEAR 를 알고 있습니다. 예를 들어 서버의 rest api 에 접속해 자료를 가져올 때 자신이 `request` 를 사용할지 `aiohttp` 를 사용할지 알고 있다는 뜻입니다. 지정한 메서드까지는 일단 async 로 연결됐지만, gear 에 따라 threading 으로 실행시킬지, asyncio 로 실행시킬지 결정할 수 있습니다. 또한 gear 로부터 발생하는 모든 오류처리를 담당합니다. 아래 예시를 보면 `get_person` 메서드는 sqlite3 의 에러와 aiohttp 의 에러를 다루고 있습니다.
+워커는 GEAR 를 이용하여 실제 작업을 수행합니다. 그래서 GEAR 를 알고 있습니다.
+
+예를 들어 서버의 rest api 에 접속해 자료를 가져올 때 자신이 `requests` 를 사용할지 `aiohttp` 를 사용할지 알고 있다는 뜻입니다. working 에서 지정한 메서드까지는 async 로 연결됐지만, 자신이 취급하는 gear는 특성에 따라 threading 을 사용할지 asyncio 로 그대로 연결할지 결정할 수 있습니다.
+
+또한 워커는 gear 로부터 발생하는 모든 오류처리를 담당합니다. 아래 예시를 보면 `get_person` 메서드는 sqlite3 의 에러와 aiohttp 의 에러를 다루고 있습니다.
 
 ```python
 # -- person_repository 하나면 충분하지만, 프로젝트에서는 일부러 두 개로 나누었습니다. --

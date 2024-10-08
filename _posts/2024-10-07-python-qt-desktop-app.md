@@ -87,12 +87,13 @@ def apply_region_action(self) -> ApplyRegionUsecase:
 ```python
 # usecase/apply_region.py
 def apply_region_action(self: Vessel) -> ApplyRegionUsecase:
+    # self 로 Vessel 이 할당됩니다.
     async def _action(is_show: bool):
         await self.update(_update, is_show)
     return _action
 ```
 
-이렇게 하면 베쓸의 함수 일부를 외부로 떼어낼 수 있습니다. usecase 를 따로 떼어내는 이유는 이전 포스트에서도 언급했듯이, 이 방식이 조금 더 유연하고 동작을 한눈에 파악하기 더 쉽기 때문입니다. 서버라면 서비스 형태가 명확히 정해져 있기 때문에 클래스로 그룹짓는 것이 더 효율적일 수 있지만, 일반 앱이라면 서버로부터 오는 데이터 가공뿐만 아니라 더불어 사용자 여러 액션까지 처리해야 하는데 그룹화 하기에 애매한 경우가 많습니다. 그래서 따로 떼어두는 것이 좀더 유연합니다.
+이렇게 하면 베쓸의 함수 일부를 외부로 떼어낼 수 있습니다. usecase 를 따로 떼어내는 이유는 이전 포스트에서도 언급했듯이, 이 방식이 조금 더 유연하고 동작을 한눈에 파악할 수 있기 때문입니다. 서버라면 서비스 형태가 명확히 정해져 있기 때문에 클래스로 그룹짓는 것이 더 효율적일 수 있지만, 일반 앱이라면 서버로부터 오는 데이터 가공뿐만 아니라 사용자 여러 액션까지 처리해야 하는데 그룹화 하기에 애매한 경우가 많습니다. 그래서 따로 떼어두는 것이 좀더 유연합니다.
 
 유스케이스 실제 작업은 전부 워커에서 합니다. 유스케이스에는 컨트롤 로직만 있을 뿐입니다.
 
@@ -124,6 +125,8 @@ def build_app_data_action(self: Vessel) -> BuildAppDataUsecase:
 
 이처럼 액션을 수행하기 위해 각각의 워커에서 자료를 교환하거나 정보를 보내는 중개자에 불과합니다.
 
+참고로, usecase 는 다른 usecase 를 호출할 수 없습니다. 상호 의존성이 없습니다. 공통 로직이 있더라도 그냥 중복해서 작성하는 것을 권하지만, 뭔가 대단한 처리여서 나중에 한꺼번에 관리해야 한다면 함수 파일을 따로 만들어 상호 import 하십시오.
+
 
 ## worker
 
@@ -134,7 +137,7 @@ def build_app_data_action(self: Vessel) -> BuildAppDataUsecase:
 또한 워커는 gear 로부터 발생하는 모든 오류처리를 담당합니다. 아래 예시는 sqlite3 의 에러와 aiohttp 의 에러를 다루고 있습니다.
 
 ```python
-# -- person_repository 하나면 충분하지만, 프로젝트에서는 일부러 두 개로 나누었습니다. --
+# -- person_repository 하나면 충분하지만, 일부러 두 개로 나누었습니다. --
 # person_local_repository.py
 # working - PersonLocalWork impl
 async def get_person(self, uid: PersonID) -> Person:
@@ -160,7 +163,8 @@ async def get_person(self, uid: PersonID) -> Person:
 
 참고로, working 을 구현하는 이 리포지토리 객체는 상호 의존성이 없습니다.
 
-위 메서드는 working 요구사항을 충족하기 위해 구현된 것으로, 주된 작업은 db에서 자료를 빼오고 이 과정에서 photo 가 캐시에 없으면 내려받는 일입니다. 어쩌면 local 은 photo 를 인터넷에서 내려받기 위해 web 이 필요할 수 있습니다. 그러나 `local_repository` 와 `web_repository` 는 수평관계입니다. 서로 참조할 수 없습니다. local 에서 http 통신이 필요하면 기어를 통해 수행해야 합니다. working 을 구현하는 워커는 usecase 에서만 호출할 수 있습니다. 만약 공통 로직이 필요하면 그걸 처리하는 객체를 공유하십시오. 현재 프로젝트에는 worker 그룹에 `db_store` 와 `file_store` 가 있습니다.
+위 메서드는 working 요구사항을 충족하기 위해 구현된 것으로, 주된 작업은 db에서 자료를 빼오고 이 과정에서 photo 가 캐시에 없으면 내려받는 일입니다. 어쩌면 local 은 인터넷에서 접속을 위해 web 이 필요할 수도 있습니다. 그러나 `local_repository` 와 `web_repository` 는 수평관계라 서로 참조할 수 없습니다. local 에서 http 통신이 필요하면 기어를 통해 수행해야 합니다. working 을 구현하는 워커는 usecase 에서만 호출할 수 있습니다. 만약 공통 로직이 필요하면 그걸 처리하는 객체를 공유하십시오. 현재 프로젝트에는 worker 그룹에 `db_store` 와 `file_store` 가 있습니다.
+
 
 ```python
 # vessel.py
@@ -213,7 +217,7 @@ except Exception as e:
 
 Qt는 네이티브에 버금가는 GUI 와 간편한 EVENT 처리를 지원하는 상당히 훌륭한 툴킷입니다. 게다가 파이썬은 그 풍부한 생태계로 무한에 가까운 사용성을 갖추고 있습니다. 저는 이 둘의 조합이 매우 좋은 구성이라고 생각합니다.
 
-사실, 파이썬으로 데스크톱 앱을 만든다는 게 그리 흔한 일은 아닙니다. 요즘 크로스 플랫폼 데스크톱 앱은 자바스크립트 일렉트론 기반으로 나오더군요. 그러니까 데스크톱 윈도우 화면에 웹페이지를 띄워서 GUI 를 그려내는 방식입니다. 대표적으로 [VSCode](https://code.visualstudio.com), [Github Desktop](https://github.com/apps/desktop), [Figma](https://www.figma.com/downloads/), [Postman](https://www.postman.com/downloads/) 등이 생각나네요.
+사실, 파이썬으로 데스크톱 앱을 만든다는 게 그리 흔한 일은 아닙니다. 요즘 크로스 플랫폼 데스크톱 앱은 자바스크립트 일렉트론 기반으로 나오더군요. 그러니까 데스크톱 윈도우 화면에 웹페이지를 띄워서 GUI 를 그려내는 방식입니다. [VSCode](https://code.visualstudio.com), [Github Desktop](https://github.com/apps/desktop), [Figma](https://www.figma.com/downloads/), [Postman](https://www.postman.com/downloads/) 등이 생각나네요.
 
 비록 Qt 가 일렉트론만큼 화려하고 자유도가 높지는 않지만 일반적인 데스트톱 앱을 구성하는데 부족함이 없을 정도입니다. 저는 GUI 의 최종 목표가 그 OS 의 네이티브에 제일 가까운 지점이어야 한다고 생각합니다. 그런 점에서 Qt 는 맥에서나 윈도우에서나 이질적이지 않고 자연스러운 모습을 보여줍니다. 심심하다고 할 수도 있겠지만 저는 마음에 듭니다.
 

@@ -97,8 +97,10 @@ a {
   text-decoration: none;
 }
 
-a:active,
-a:hover {
+a:link,
+a:visited,
+a:hover,
+a:active {
   outline: 0 !important;
 }
 
@@ -275,7 +277,6 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 input[type="search"] {
-  -webkit-appearance: textfield;
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
@@ -304,6 +305,12 @@ textarea {
 
 optgroup {
   font-weight: bold;
+}
+
+textarea:focus,
+button:focus,
+input:focus {
+  outline: none;
 }
 
 

@@ -120,7 +120,7 @@ protocol PersonDBWork {
 AppState    Repository   Repository
    ├───────────┼────────┬────┴───┐
    │        Usecase   Usecase  Usecase
-   │           ├────────┴─────────┘
+   │           ├────────┴────────┘
    └────── Container
          ┌─────┴────┐
         View    ViewModel

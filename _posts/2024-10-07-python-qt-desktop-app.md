@@ -37,11 +37,11 @@ GUI 프로그래밍은 화면을 갱신하는 런루프가 돌기 때문에 동�
 
 코드 사인 관련 항목은 빠져 있습니다. 기업에서 정식으로 배포하려면 넣어야 합니다.
 
-저는 Nuitka 를 사용하고 있습니다. Python 코드를 C 코드로 바꾼 뒤 완전히 컴파일하는 방식입니다. PyInstaller 와 비교하여 동작 속도는 별 차이가 없는데(더 느릴 수 있습니다), 용량은 조금 줄일 수 있습니다. 둘 다 매우 훌륭하게 배포본이 만들어집니다. 다만 onefile 옵션은 빼는 것이 좋습니다. 이 방식은 동작한다 하더라도 결코 좋은 형태는 아닙니다. 앱을 실행하는 순간에 캐시에 모든 걸 풀어낸 다음 런칭됩니다. 이보다는 standalone 으로 처리된 dist 를 [Actual Installer](https://www.actualinstaller.com) 나 [InstallForge](https://installforge.net) 로 패키징하는 것이 좋습니다. 맥이라면 만들어진 앱 번들을 맥 내장 디스크 유틸리티에서 dmg 이미지로 만들거나 좀 더 일반적으로 '끌어서 Application 에 넣기' 를 제공하는 [DropDMG](https://c-command.com/dropdmg/) 를 사용하는 방법이 있습니다.
+저는 Nuitka 를 사용하고 있습니다. Python 코드를 C 코드로 바꾼 뒤 완전히 컴파일하는 방식입니다. PyInstaller 와 비교하여 동작 속도는 별 차이가 없는데(더 느릴 수 있습니다), 용량은 조금 줄일 수 있습니다. 둘 다 매우 훌륭하게 배포본이 만들어집니다. 다만 onefile 옵션은 빼는 것이 좋습니다. 이 방식은 동작한다 하더라도 결코 좋은 형태는 아닙니다. 앱을 실행하는 순간에 캐시에 모든 걸 풀어낸 다음 런칭됩니다. 이보다는 standalone 으로 처리된 dist 를 [Actual Installer](https://www.actualinstaller.com) 나 [InstallForge](https://installforge.net) 같은 툴로 패키징하는 것이 좋습니다. 맥이라면 만들어진 앱 번들을 맥 내장 디스크 유틸리티에서 dmg 이미지로 만들거나 좀 더 일반적으로 '끌어서 Application 에 넣기' 를 제공하는 [DropDMG](https://c-command.com/dropdmg/) 를 사용하는 방법이 있습니다.
 
 그 외의 내용은 환경설정과 초기화입니다. 앱의 전체적인 구조도 [이전 포스트](https://kiroshin.github.io/2024-07-22-hello-pure) 에서 말씀드렸던 것과 동일하게 구성되어 있습니다. 다만 안드로이드나 아이폰 등 보통의 GUI 프로그래밍에서 자동으로 해주는 것을 수동으로 잡아줘야 하는 번거로움이 있습니다.
 
-한가지, 이전 쓰레딩 모델과 달라진 점은 `__bootup__ / __shutdown__` 입니다. async runloop 내에서 초기화되고 해제되어야 하는 것들입니다. 사실 이런 비슷한 목적으로 파이썬에서는 `__aenter__ / __aexit__` 가 있습니다만, 이건 with 컨텍스트 내의 인스턴스에 해당하는 것이라 사용 목적이 다르기 때문에 의도적으로 메서드 이름을 다르게 지정했습니다. 이 메서드는 Vessel 과 MainWindow 의 인스턴스를 만들고 해제하는 과정, aiohttp 를 초기화하는 스태틱메서드로 사용했습니다.
+한가지, 이전 쓰레딩 모델과 달라진 점은 `__bootup__ / __shutdown__` 입니다. async runloop 내에서 초기화되고 해제되어야 하는 것들입니다. 사실 이런 비슷한 목적으로 파이썬에서는 `__aenter__ / __aexit__` 가 있습니다만, 이건 with 컨텍스트 내의 인스턴스에 해당하는 것이라 사용 목적이 다르기 때문에 의도적으로 메서드 이름을 다르게 지정했습니다. 이건 Vessel, MainWindow 와 aiohttp 에 사용했습니다.
 
 
 ## app state

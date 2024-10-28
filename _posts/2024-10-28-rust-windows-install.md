@@ -12,7 +12,7 @@ brief: 맥이나 리눅스에서는 간편하게 개발환경을 구축할 수 �
 ### 제일 간편한 방법: Standalone installers
 >> <https://forge.rust-lang.org/infra/other-installation-methods.html#standalone-installers>
 
-위 링크에서 윈도우 버전에 해당하는 인스탈러를 받아서 설치하면 끝난다.
+위 링크에서 윈도우 버전에 해당하는 인스탈러를 받아서 설치하면 됩니다.
 - `aarch64-pc-windows-msvc`
 - `i686-pc-windows-gnu`
 - `i686-pc-windows-msvc`

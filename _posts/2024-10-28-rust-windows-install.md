@@ -150,7 +150,7 @@ stable-x86_64-pc-windows-msvc
 
 ![MinGW Lib Path](/assets/mingw-lib-windows-path.jpg)
 
-> 스크롤 내려서 path 선택 -> 편집 :: 여기서 새로만들기 -> `c:\mingw64\bin` -> 확인
+```스크롤 내려서 path 선택 -> 편집 :: 여기서 새로만들기 -> "c:\mingw64\bin" -> 확인```
 
 이렇게 했으면 커맨드라인에서 확인해봅니다.
 

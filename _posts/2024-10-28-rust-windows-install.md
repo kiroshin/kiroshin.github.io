@@ -57,14 +57,14 @@ available. These components can be acquired through a Visual Studio installer.
 
 ![MSVC compiler](/assets/rust-req-visual-cpp-build-tools.jpg)
 
-Visual C++ 빌드 도구를 클릭하면 선택되는 항목은 모두 설치해줍니다. 용량 아낀다고 이런 거 빼버리면 어디서 오류를 만날지 모릅니다. 이것도 설치가 한참 진행됩니다. 다 끝나고 나면 다운받은 `rustup-init.exe` 파일을 다시 클릭합니다.
+`Visual C++ 빌드 도구`를 클릭하면 선택되는 항목은 모두 설치해줍니다. 용량 아낀다고 이런 거 빼버리면 어디서 오류를 만날지 모릅니다(저도 `선택사항` 항목을 빼고 싶은 마음이 큽니다만, Windows SDK 가 빠졌을 때 오류가 났습니다.). 어쨌든 설치가 다 끝나고 나면 다운받은 `rustup-init.exe` 파일을 다시 클릭합니다.
 
 ```
 Welcome to Rust!
 This will download and install the official compiler for the Rust
 programming language, and its package manager, Cargo.
 Rustup metadata and toolchains will be installed into the Rustup
-...
+... ㅇ
 You can uninstall at any time with rustup self uninstall and
 these changes will be reverted.
 Current installation options:

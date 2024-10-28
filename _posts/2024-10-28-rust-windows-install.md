@@ -168,8 +168,8 @@ C:\Windows\system32>
 
 그런데 `c:\mingw64\bin` 에 가보면 `mingw32-make.exe` 파일이 있어요.
 
-음.. 이대로 두면 불편하니까 `make.exe` 라는 이름으로 하드링크 합니다(그냥 복사해도 상관없습니다).
-
+음.. 이대로 두면 불편하니까 `make.exe` 라는 이름으로 하드링크 합니다
+(그냥 복사해도 상관없습니다).
 
 ```bat
 C:\mingw64\bin>mklink /h "make.exe" "mingw32-make.exe"

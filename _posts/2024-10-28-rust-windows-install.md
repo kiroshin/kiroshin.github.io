@@ -89,7 +89,7 @@ C:\Windows\system32>rustc --version
 rustc 1.82.0 (f6e511eec 2024-10-15)
 ```
 
-커맨드라인에서 버전 정보가 뜨면 잘 설치된 것입니다. 혹시 32비트로 컴파일할 일이 있으면 툴체일을 추가해줘야 합니다.
+커맨드라인에서 버전 정보가 뜨면 잘 설치된 것입니다. 혹시 32비트로 컴파일할 일이 있으면 툴체인을 추가해줘야 합니다.
 
 ```bat
 C:\Windows\system32>rustup toolchain install stable-i686-pc-windows-msvc
@@ -133,7 +133,7 @@ stable-x86_64-pc-windows-msvc
 
 * MinGW: <https://www.mingw-w64.org/downloads/>
 
-여기 가보면, 참 많고, MSVCRT/UCRT 도 골라야 하는데 윈도우 10부터는 UCRT 를 쓴다고 합니다. 제가 윈도우에서 개발할 일이 없어서 이 관계가 어찌 되는지는 잘 모르겠습니다만, 아주 예전에 제 기억을 더듬어 보면, C 컴파일러가 표준과 거리가 멀었던 것 같네요. 어찌됐건 이 많은 배포판 중에서 저는 제일 깔끔한 `WinLibs`를 선택했습니다. gcc 의 경우 업데이트를 자주 할 일이 없습니다. 항상 최신으로 관리하고 싶다면 `MSYS2` 를 선택하세요.
+여기 가보면, 종류나 선택사항이 참 많습니다. 윈도우 10부터는 UCRT 를 쓴다고 하는데, 이전에는 MSVCRT 를 사용했다고 하네요. 제가 윈도우에서 개발할 일이 없어서 이 관계가 어찌 되는지는 잘 모르겠습니다만, 아주 예전에 제 기억을 더듬어 보면, C 컴파일러가 표준과 거리가 멀었던 것 같네요. 어찌됐건 이 많은 배포판 중에서 저는 제일 깔끔한 `WinLibs`를 선택했습니다. gcc 의 경우 업데이트를 자주 할 일이 없습니다만, 항상 최신으로 관리한다면 `MSYS2` 를 선택하세요.
 
 * WinLibs: <https://winlibs.com>
 
@@ -166,10 +166,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 C:\Windows\system32>
 ```
 
-그런데 `c:\mingw64\bin` 에 가보면 `mingw32-make.exe` 파일이 있어요.
-
-음.. 이대로 두면 불편하니까 `make.exe` 라는 이름으로 하드링크 합니다
-(그냥 복사해도 상관없습니다).
+됐습니다. 그런데 `C:\mingw64\bin` 에 가보면 `mingw32-make.exe` 파일이 있어요. 음.. 이대로 두면 불편하니까 `make.exe` 라는 이름으로 하드링크 합니다(그냥 복사해도 상관없습니다).
 
 ```bat
 C:\mingw64\bin>mklink /h "make.exe" "mingw32-make.exe"
@@ -188,7 +185,7 @@ C:\mingw64\bin>
 
 ![MinGW Make Copy](/assets/mingw-make-copy.jpg)
 
-끝났습니다.
+다 끝났습니다.
 
 
 ## 그럼 IDE 는?

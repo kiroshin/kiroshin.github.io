@@ -29,7 +29,7 @@ brief: 맥이나 리눅스에서는 간편하게 개발환경을 구축할 수 �
 
 다운받은 `rustup-init.exe` 파일을 클릭합니다.
 
-```shell
+```
 Rust Visual C++ prerequisites
 Rust requires a linker and Windows API libraries but they don't seem to be
 available. These components can be acquired through a Visual Studio installer.
@@ -61,7 +61,7 @@ available. These components can be acquired through a Visual Studio installer.
 
 이렇게 한 뒤 다운받은 `rustup-init.exe` 파일을 다시 클릭합니다.
 
-```shell
+```
 Welcome to Rust!
 This will download and install the official compiler for the Rust
 programming language, and its package manager, Cargo.
@@ -82,16 +82,16 @@ Current installation options:
 >
 ```
 
-이렇게 뜨게 된다면 러스트 설치 준비가 다 된 겁니다. 이제 `1` 을 선택해서 진행합니다. `2` 로 하면 피곤해집니다. 그냥 `1` 로 하세요.
+이렇게 뜨게 된다면 러스트 설치 준비가 다 된 겁니다. 이제 `1` 을 선택해서 진행합니다.
 
-```shell
+```bat
 C:\Windows\system32>rustc --version
 rustc 1.82.0 (f6e511eec 2024-10-15)
 ```
 
 커맨드라인에서 버전 정보가 뜨면 잘 설치된 것입니다. 혹시 32비트로 컴파일할 일이 있으면 툴체일을 추가해줘야 합니다.
 
-```shell
+```bat
 C:\Windows\system32>rustup toolchain install stable-i686-pc-windows-msvc
 info: syncing channel updates for 'stable-i686-pc-windows-msvc'
 info: latest update on 2024-10-17, rust version 1.82.0 (f6e511eec 2024-10-15)
@@ -113,7 +113,7 @@ C:\Windows\system32>
 
 이렇게 윈도우에 러스트가 설치됐고, 32비트/64비트 툴체인도 다 설치됐네요. 물론 default 값은 바꿀 수도 있습니다.
 
-```shell
+```bat
 C:\Windows\system32>rustup default stable-i686-pc-windows-msvc
 info: using existing install for 'stable-i686-pc-windows-msvc'
 info: default toolchain set to 'stable-i686-pc-windows-msvc'
@@ -154,7 +154,7 @@ stable-x86_64-pc-windows-msvc
 
 이렇게 했으면 커맨드라인에서 확인해봅니다.
 
-```shell
+```bat
 C:\Windows\system32>gcc --version
 gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r2) 14.2.0
 Copyright (C) 2024 Free Software Foundation, Inc.

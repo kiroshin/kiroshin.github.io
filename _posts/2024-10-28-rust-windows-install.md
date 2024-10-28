@@ -10,7 +10,7 @@ brief: 맥이나 리눅스에서는 간편하게 개발환경을 구축할 수 �
 맥이나 리눅스에서는 간편하게 개발환경을 구축할 수 있는데, 윈도우에서 유독 번거로운 경우가 종종 있습니다. 이번에 윈도우에서 러스트를 컴파일 할 일이 있어서 개발환경을 구축하다가 짜증나서 기록을 남깁니다.
 
 ### 제일 간편한 방법: Standalone installers
->> <https://forge.rust-lang.org/infra/other-installation-methods.html#standalone-installers>
+* <https://forge.rust-lang.org/infra/other-installation-methods.html#standalone-installers>
 
 위 링크에서 윈도우 버전에 해당하는 인스탈러를 받아서 설치하면 됩니다.
 - `aarch64-pc-windows-msvc`
@@ -45,13 +45,13 @@ available. These components can be acquired through a Visual Studio installer.
 
 만약 위와 같은 화면을 만난다면 윈도우용 빌드툴이 없는 겁니다. `1` 을 선택하면 자동으로 `Visual Studio Community installer` 를 내려받고 설치되는데, 용량이 아주 많이 크죠. 사실 빌드 툴만 있어도 충분합니다. 그래서 그냥 창을 닫아버리고 일단 빌드툴부터 설치하도록 하겠습니다.
 
->> <https://visualstudio.microsoft.com/visual-cpp-build-tools/>
+* <https://visualstudio.microsoft.com/visual-cpp-build-tools/>
 
 현재 Standalone MSVC compiler 2022 버전이 내려받아집니다. 윈도우 11 빌드 툴을 포함하고 있는데 굳이 최신 빌드툴을 내려받을 필요가 없습니다.
 
->> * 2017: <https://aka.ms/vs/15/release/vs_buildtools.exe>
->> * 2019: <https://aka.ms/vs/16/release/vs_buildtools.exe>
->> * 2022: <https://aka.ms/vs/17/release/vs_buildtools.exe>
+* 2017: <https://aka.ms/vs/15/release/vs_buildtools.exe>
+* 2019: <https://aka.ms/vs/16/release/vs_buildtools.exe>
+* 2022: <https://aka.ms/vs/17/release/vs_buildtools.exe>
 
 저는 윈도우 10에 2017 버전을 설치했는데, 아무 문제없네요. 용량도 4G로 제일 적습니다. 2022 버전은 7G 입니다.
 
@@ -131,24 +131,26 @@ stable-x86_64-pc-windows-msvc
 ## 한 김에 gcc 도 설치해 봅시다.
 범용 C의 경우 gcc를 선호합니다. gcc 는 어디든 쓰니까 설치해보죠.
 
->> MinGW: <https://www.mingw-w64.org/downloads/>
+* MinGW: <https://www.mingw-w64.org/downloads/>
 
 여기 가보면, 참 많고, MSVCRT/UCRT 도 골라야 하는데 윈도우 10부터는 UCRT 를 쓴다고 합니다. 제가 윈도우에서 개발할 일이 없어서 이 관계가 어찌 되는지는 잘 모르겠습니다만, 아주 예전에 제 기억을 더듬어 보면, C 컴파일러가 표준과 거리가 멀었던 것 같네요. 어찌됐건 이 많은 배포판 중에서 저는 제일 깔끔한 `WinLibs`를 선택했습니다. gcc 의 경우 업데이트를 자주 할 일이 없습니다. 항상 최신으로 관리하고 싶다면 `MSYS2` 를 선택하세요.
 
->> WinLibs: <https://winlibs.com>
+* WinLibs: <https://winlibs.com>
 
+```
 - UCRT runtime GCC 14.2.0 (with POSIX threads) Win32 / Win64
 - MSVCRT runtime GCC 14.2.0 (with POSIX threads) Win32 / Win64
+```
 
 이 중에서 UCRT 64비트 zip 을 내려받고 압축을 풀면 `mingw64` 폴더가 보입니다. 저는 C 루트로 옮겼습니다. 그 다음 할 일은 path 를 등록해주는 일입니다.
 
->> 제어판 -> 고급시스템설정 -> 고급탭 -> 환경변수
+> 제어판 -> 고급시스템설정 -> 고급탭 -> 환경변수
 
 여기까지 오면 사용자변수에 등록할건지 시스템변수에 등록할건지 결정해야 하는데, 뭘 해도 상관없지만 그래도 컴파일러니까 시스템변수에 넣어줍니다.
 
 ![MinGW Lib Path](/assets/mingw-lib-windows-path.jpg)
 
->> 스크롤 내려서 path 선택 -> 편집 :: 여기서 새로만들기 -> `c:\mingw64\bin` -> 확인
+> 스크롤 내려서 path 선택 -> 편집 :: 여기서 새로만들기 -> `c:\mingw64\bin` -> 확인
 
 이렇게 했으면 커맨드라인에서 확인해봅니다.
 

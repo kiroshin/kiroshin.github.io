@@ -169,7 +169,7 @@ C:\Windows\system32>
 음.. 이대로 두면 불편하니까 `make.exe` 라는 이름으로 하드링크 합니다(그냥 복사해도 상관없습니다).
 
 
-```cmd
+```shell
 C:\mingw64\bin>mklink /h "make.exe" "mingw32-make.exe"
 하드 링크 작성: make.exe <<===>> mingw32-make.exe
 

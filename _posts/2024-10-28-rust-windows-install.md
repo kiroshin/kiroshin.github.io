@@ -57,9 +57,7 @@ available. These components can be acquired through a Visual Studio installer.
 
 ![MSVC compiler](/assets/rust-req-visual-cpp-build-tools.jpg)
 
-주의할 점은 이미지의 노란박스에 해당하는 걸 모두 설치해야 한다는 점입니다. 하나라도 빠지만 링커 에러가 납니다.
-
-이렇게 한 뒤 다운받은 `rustup-init.exe` 파일을 다시 클릭합니다.
+Visual C++ 빌드 도구를 클릭하면 선택되는 항목은 모두 설치해줍니다. 용량 아낀다고 이런 거 빼버리면 어디서 오류를 만날지 모릅니다. 이것도 설치가 한참 진행됩니다. 다 끝나고 나면 다운받은 `rustup-init.exe` 파일을 다시 클릭합니다.
 
 ```
 Welcome to Rust!

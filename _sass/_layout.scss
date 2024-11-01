@@ -9,12 +9,12 @@ body {
     grid-template-columns: 1fr 750px 1fr;
     grid-template-rows: $header-height minmax(500px, auto) minmax(200px, auto) 100px;
   }
-  // 1024 <= laptop < 1400
+  // 1024 <= laptop < 1600
   @media screen and (min-width: $screen-laptop) {
     grid-template-columns: minmax(200px, 2fr) 800px 1fr;
     grid-template-rows: $header-height minmax(500px, auto) 100px;
   }
-  // 1400 < desk
+  // 1600 < desk
   @media screen and (min-width: $screen-desk) {
     grid-template-columns: minmax(200px, 2fr) 900px 1fr;
     grid-template-rows: $header-height minmax(500px, auto) 100px;

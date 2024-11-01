@@ -11,11 +11,9 @@
 
   .post-content {
     display: block !important;
-    p {
-      word-break: normal;
-      line-break: loose;
-      overflow-wrap: break-word;
-      text-align: justify;
-    }
+    word-break: normal !important;
+    line-break: loose !important;
+    overflow-wrap: break-word !important;
+    text-align: justify !important;
   }
 }

@@ -11,5 +11,8 @@
 
   .post-content {
     display: block !important;
+    word-break: normal;
+    overflow-wrap: break-word;
+    text-align: justify;
   }
 }

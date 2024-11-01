@@ -54,11 +54,8 @@ aside.post-teaser img {
   line-height: 1.7;
   word-break: normal;
   overflow-wrap: break-word;
-  @media screen and (min-width: $screen-laptop) {
-    font-size: $text-font-size-large;
-  }
   @media screen and (min-width: $screen-desk) {
-    font-size: $text-font-size-extra;
+    font-size: $text-font-size-large;
   }
   p {
     text-align: left;

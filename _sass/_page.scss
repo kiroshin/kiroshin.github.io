@@ -70,8 +70,11 @@ aside.post-teaser img {
   }
   li {
     font-family: $sans-serif;
-    font-size: $text-font-size-medium;
+    font-size: $text-font-size-small;
     line-height: 1.5;
+    @media screen and (min-width: $screen-desk) {
+      font-size: $text-font-size-medium;
+    }
   }
   blockquote p {
     text-align : left;

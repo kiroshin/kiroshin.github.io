@@ -13,11 +13,11 @@ brief: 맥이나 리눅스에서는 간편하게 개발환경을 구축할 수 �
 * <https://forge.rust-lang.org/infra/other-installation-methods.html#standalone-installers>
 
 위 링크에서 윈도우 버전에 해당하는 인스탈러를 받아서 설치하면 됩니다.
-- `aarch64-pc-windows-msvc`
-- `i686-pc-windows-gnu`
-- `i686-pc-windows-msvc`
-- `x86_64-pc-windows-gnu`
-- `x86_64-pc-windows-msvc`
+- aarch64-pc-windows-msvc
+- i686-pc-windows-gnu
+- i686-pc-windows-msvc
+- x86_64-pc-windows-gnu
+- x86_64-pc-windows-msvc
 
 이 중에서, 32비트로 컴파일하려면 `i686`을, 64비트로 컴파일 하려면 `x86_64`을 받으면 됩니다. 호환을 위해 msvc 버전으로 하는 게 정신건강에 좋습니다. 아마 대부분 64비트 윈도우를 사용할 것이므로 `x86_64-pc-windows-msvc`를 선택하면 됩니다. 현재 stable (1.82.0) 입니다.
 
@@ -82,14 +82,14 @@ Current installation options:
 
 이렇게 뜨게 된다면 러스트 설치 준비가 다 된 겁니다. 이제 `1` 을 선택해서 진행합니다.
 
-```bat
+```
 C:\Windows\system32>rustc --version
 rustc 1.82.0 (f6e511eec 2024-10-15)
 ```
 
 커맨드라인에서 버전 정보가 뜨면 잘 설치된 것입니다. 혹시 32비트로 컴파일할 일이 있으면 툴체인을 추가해줘야 합니다.
 
-```bat
+```
 C:\Windows\system32>rustup toolchain install stable-i686-pc-windows-msvc
 info: syncing channel updates for 'stable-i686-pc-windows-msvc'
 info: latest update on 2024-10-17, rust version 1.82.0 (f6e511eec 2024-10-15)
@@ -111,7 +111,7 @@ C:\Windows\system32>
 
 이렇게 윈도우에 러스트가 설치됐고, 32비트/64비트 툴체인도 다 설치됐네요. 물론 default 값은 바꿀 수도 있습니다.
 
-```bat
+```
 C:\Windows\system32>rustup default stable-i686-pc-windows-msvc
 info: using existing install for 'stable-i686-pc-windows-msvc'
 info: default toolchain set to 'stable-i686-pc-windows-msvc'
@@ -154,7 +154,7 @@ stable-x86_64-pc-windows-msvc
 
 이렇게 했으면 커맨드라인에서 확인해봅니다.
 
-```bat
+```
 C:\Windows\system32>gcc --version
 gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r2) 14.2.0
 Copyright (C) 2024 Free Software Foundation, Inc.
@@ -166,7 +166,7 @@ C:\Windows\system32>
 
 됐습니다. 그런데 `C:\mingw64\bin` 에 가보면 `mingw32-make.exe` 파일이 있어요. 음.. 이대로 두면 불편하니까 `make.exe` 라는 이름으로 하드링크 합니다(그냥 복사해도 상관없습니다).
 
-```bat
+```
 C:\mingw64\bin>mklink /h "make.exe" "mingw32-make.exe"
 하드 링크 작성: make.exe <<===>> mingw32-make.exe
 

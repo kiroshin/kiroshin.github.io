@@ -49,7 +49,7 @@ aside.post-teaser img {
 }
 
 .post-content {
-  font-family: "Noto Serif KR", $serif;
+  font-family: $sans-serif;  /* "Noto Serif KR", $serif; */
   font-size: $text-font-size-medium;
   line-height: 1.7;
   word-break: normal;

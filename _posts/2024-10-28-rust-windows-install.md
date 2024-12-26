@@ -5,6 +5,7 @@ categories: [Rust]
 tags: [rustup, msvc, buildtools, vscode, gcc, make, rustrover]
 teaser: "/assets/rust-windows-rustup-init.jpg"
 brief: 맥이나 리눅스에서는 간편하게 개발환경을 구축할 수 있는데, 윈도우에서 유독 번거로운 경우가 종종 있습니다. 이번에 윈도우에서 러스트를 컴파일 할 일이 있어서 개발환경을 구축하다가 짜증나서 기록을 남깁니다.
+math: true
 ---
 
 맥이나 리눅스에서는 간편하게 개발환경을 구축할 수 있는데, 윈도우에서 유독 번거로운 경우가 종종 있습니다. 이번에 윈도우에서 러스트를 컴파일 할 일이 있어서 개발환경을 구축하다가 짜증나서 기록을 남깁니다.

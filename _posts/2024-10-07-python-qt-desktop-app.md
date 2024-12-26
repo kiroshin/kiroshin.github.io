@@ -5,7 +5,6 @@ categories: [Python]
 tags: [pyside6, qasync, aiohttp]
 teaser: "/assets/pure-python-pyside6-preview.jpg"
 brief: 파이썬으로 크로스 플랫폼 데스크톱 앱을 만드는 것이 흔한 일은 아닙니다. Qt 는 일반적인 범위에서는 충분히 많은 기능을 제공하고 있으며 속도도 빠르고 안정적입니다. 이번에는 지난 포스트에서 소개한 아키텍처를 Python 과 Qt 를 이용해 구성해 보겠습니다.
-math: false
 ---
 
 파이썬에서 활용할 수 있는 GUI 툴킷은 내장된 `Tk` 를 비롯해 `wx`, `qt` 등이 있는데, `qt` 가 가장 좋습니다. QT는 꾀나 방대합니다. 다행스러운 것은 문서가 매우 친절합니다. 애플의 AppKit 보다 훨씬 친절합니다.

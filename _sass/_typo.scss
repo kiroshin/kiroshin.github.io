@@ -13,16 +13,16 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 1em 0 .5em 0;
+  margin: 1.2em 0 .5em 0;
   font-family: $sans-serif;
   font-style: normal;
   font-weight: normal;
-  line-height: 1.2;
+  line-height: 1.5;
   text-align: start;
 }
 
 h1 {
-  margin: 1em 0;
+  margin: 1.2em 0;
   font-size: $head-font-h1;
   @media screen and (min-width: $screen-tablet) {
     font-size: $head-font-h0;

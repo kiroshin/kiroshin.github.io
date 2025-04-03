@@ -5,8 +5,8 @@ sitemap: false
 User-agent: *
 Allow: /
 
-Disallow: /*.xlsx$
-Disallow: /*.cvs$
-Disallow: /*.pdf$
+Disallow: /assets/*.xlsx$
+Disallow: /assets/*.cvs$
+Disallow: /assets/*.pdf$
 
 Sitemap: {{ "sitemap.xml" | absolute_url }}

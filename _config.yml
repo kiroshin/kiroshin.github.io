@@ -2,7 +2,7 @@ lang: ko
 locale: ko_KR
 title: Exception
 description: Hello, World!
-permalink: /:year-:month-:day-:title
+permalink: /:year-:month-:day-:title/
 date_format: "%Y.%m.%d"
 profile: "https://avatars.githubusercontent.com/u/43216569?v=4&s=300"
 author: Kiro Shin

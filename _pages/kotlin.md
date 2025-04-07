@@ -1,5 +1,5 @@
 ---
 layout: category
 title: KOTLIN
-permalink: /kotlin
+permalink: /kotlin/
 ---

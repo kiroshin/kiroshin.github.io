@@ -1,5 +1,5 @@
 ---
 layout: category
 title: RUST
-permalink: /rust
+permalink: /rust/
 ---

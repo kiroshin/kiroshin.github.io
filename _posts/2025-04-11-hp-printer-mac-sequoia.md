@@ -30,7 +30,7 @@ math: false
 3. 다시 설치 파일로 패키징하여 설치!
 
 
-## 빨른 해결
+## 빠른 해결
 완성 파일은 용량이 커서 배포하기 힘들기 때문에 스크립트 파일 만들었습니다. 별 거 없고 위 링크 설명에 나온대로입니다.
 
 * 다운: <https://kiroshin.github.io/assets/hp_drivers_15_0_1_unlock.sh>
@@ -95,30 +95,10 @@ k@MBP Downloads % pkgutil --flatten ~/Downloads/hp-expand ~/Downloads/HP_Drivers
 k@MBP Downloads % rm -R ~/Downloads/hp-expand
 ```
 
-새로 만들어진 pkg 파일을 클릭하여 설치합니다.
-
-인텔용이기 때문에 `Rosetta 2` 를 먼저 설치해야 한다고 뜹니다. 만약 로제타가 이미 설치가 되어 있다면 이 메시지는 나오지 않습니다. 로제타는 애플실리콘 기반 맥에서 인텔용 바이너리를 실행하기 위한 아주 얇은 레이어입니다. 이거 설치한다고 따로 로제타 앱이 뜨는 건 아니라서 로제타 위에서 실행된지도 모릅니다. 저처럼 시스템을 건드는 것에 극히 예민한 사용자라 할지라도 괜찮습니다.
-
-이렇게 설치가 되고 나면 설정의 프린터 추가에서 정상적으로 구형 HP 프린터가 잡히고, 출력도 아주 잘 됩니다.
-
-![installed](/assets/hp_printer_installed.jpg)
+위 과정은 Keka 로 풀어서 Distribution 파일을 직접 수정해도 괜찮습니다. 이럴 때는 텍스트 대치를 안하고 그냥 지워버려도 됩니다.
 
 ```xml
-<!-- Distribution 파일 -->
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<installer-gui-script minSpecVersion="1">
-    <options hostArchitectures="x86_64"/>
-    <title>SU_TITLE</title>
-    <script/>
-    <installation-check script="InstallationCheck()"/>
-    <license file="License.rtf"/>
-    <choices-outline>
-        <line choice="manual"/>
-    </choices-outline>
-    <choice id="manual" title="SU_TITLE">
-        <pkg-ref id="HewlettPackardPrinterDrivers" auth="Root" packageIdentifier="com.apple.pkg.HewlettPackardPrinterDrivers">#HewlettPackardPrinterDrivers.pkg</pkg-ref>
-    </choice>
-    <script>
+<script>
 function InstallationCheck(prefix) {
 <!-- 지워버려
     if (system.compareVersions(system.version.ProductVersion, '15.0') &gt; 0) {
@@ -130,15 +110,12 @@ function InstallationCheck(prefix) {
     return true;
 }
 </script>
-    <pkg-ref id="HewlettPackardPrinterDrivers" installKBytes="933742" version="10.6.0.1.1.1635454841"/>
-</installer-gui-script>
 ```
 
+이렇게 새로 만들어진 pkg 파일을 클릭하여 설치합니다.
 
+인텔용이기 때문에 `Rosetta 2` 를 먼저 설치해야 한다고 뜹니다. 만약 로제타가 이미 설치가 되어 있다면 이 메시지는 나오지 않습니다. 로제타는 애플실리콘 기반 맥에서 인텔용 바이너리를 실행하기 위한 아주 얇은 레이어입니다. 이거 설치한다고 따로 로제타 앱이 뜨는 건 아니라서 로제타 위에서 실행된지도 모릅니다. 저처럼 시스템을 건드는 것에 극히 예민한 사용자라 할지라도 괜찮습니다.
 
+이렇게 설치가 되고 나면 설정의 프린터 추가에서 정상적으로 구형 HP 프린터가 잡히고, 출력도 아주 잘 됩니다.
 
-
-
-
-
-
+![installed](/assets/hp_printer_installed.jpg)

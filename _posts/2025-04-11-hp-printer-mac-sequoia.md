@@ -36,7 +36,7 @@ math: false
 * 다운: <https://kiroshin.github.io/assets/hp_drivers_15_0_1_unlock.sh>
 * 터미널에서 다운로드 폴더로 이동한 뒤 `sh hp_drivers_15_0_1_unlock.sh` 치세요.
 
-```shell`
+```shell
 k@MBP ~ % cd Downloads
 k@MBP Downloads % sh hp_drivers_15_0_1_unlock.sh
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -101,7 +101,7 @@ k@MBP Downloads % rm -R ~/Downloads/hp-expand
 
 이렇게 설치가 되고 나면 설정의 프린터 추가에서 정상적으로 구형 HP 프린터가 잡히고, 출력도 아주 잘 됩니다.
 
-![hp](./hp_printer_installed.jpg)
+![installed](/assets/hp_printer_installed.jpg)
 
 ```xml
 <!-- Distribution 파일 -->

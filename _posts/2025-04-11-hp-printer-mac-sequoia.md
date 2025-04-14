@@ -74,7 +74,7 @@ expected   CRC32 $55426676
 /dev/disk4s1            Apple_partition_map
 /dev/disk4s2            Apple_HFS                       /Volumes/HP_PrinterSupportManual
 
-# 내부 파일을 로컬에 복사하여 풀어높습니다.
+# 내부 파일을 로컬에 복사하여 풀어놓습니다.
 k@MBP Downloads % pkgutil --expand /Volumes/HP_PrinterSupportManual/HewlettPackardPrinterDrivers.pkg ~/Downloads/hp-expand
 
 # 이제 마운트한 건 필요없으니 해제합니다.

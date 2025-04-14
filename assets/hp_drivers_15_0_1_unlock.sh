@@ -6,7 +6,7 @@ curl -o ~/Downloads/HewlettPackardPrinterDrivers.dmg https://updates.cdn-apple.c
 # 다운받았던 파일을 마운트합니다.
 hdiutil attach ~/Downloads/HewlettPackardPrinterDrivers.dmg
 
-# 내부 파일을 로컬에 복사하여 풀어높습니다.
+# 내부 파일을 로컬에 복사하여 풀어놓습니다.
 pkgutil --expand /Volumes/HP_PrinterSupportManual/HewlettPackardPrinterDrivers.pkg ~/Downloads/hp-expand
 
 # 이제 마운트한 건 필요없으니 해제합니다.

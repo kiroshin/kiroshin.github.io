@@ -26,7 +26,7 @@ word: 200
         {% for cat in post.categories -%}
         <category>{{ cat | downcase | xml_escape }}</category>
         {% endfor -%}
-      </item>
+    </item>
     {% endfor -%}
   </channel>
 </rss>

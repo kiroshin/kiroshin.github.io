@@ -25,16 +25,16 @@ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/
 
 이건 애플 실리콘에서는 `/opt/homebrew`에, 인텔맥에서는 `/usr/local` 설치됩니다.
 
-설치하는 과정에서 Xcode Command Line Tool 을 요구합니다. 짜증나더군요. Xcode 가 이미 설치되어 있는데, 커맨드라인툴을 설치한다고 하네요. 이거 설치 안하면 진행이 안 되니까 일단 설치합니다. 설치 스크립트에서 검사를 어떻게 하는 건지 정말 어처구니가 없어습니다. 아마 대부분 홈브루를 필요로 하는 분들이 백엔드 개발자일 것 같은데, 그래서 검사를 대충 하는 걸까요? 더 짜증나는 건 커맨드라인 툴을 곱게 설치만 하는 게 아니라 원래 Xcode.app 으로 지정되어 있던 경로를 CommandLineTools 로 바꿔버립니다.
+설치하는 과정에서 Xcode Command Line Tool 을 요구합니다. Xcode 가 이미 설치되어 있는데 커맨드라인툴을 설치한다고 하네요. 이거 설치 안하면 진행이 안 되니까 일단 설치합니다. 설치 스크립트에서 검사를 어떻게 하는 건지 정말 어처구니가 없어습니다. 아마 대부분 홈브루를 필요로 하는 분들이 Xcode 까지 필요하지 않은 개발자일 것 같은데, 그래서 검사를 대충 하는 걸까요? 커맨드라인 툴을 곱게 설치만 하는 게 아니라 원래 Xcode.app 으로 지정되어 있던 경로를 CommandLineTools 로 바꿔버립니다.
 
 ```shell
 $ sudo xcode-select --switch /Library/Developer/CommandLineTools
 $ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer/
 ```
 
-Xcode 가 설치되어 있다면 아래를 사용해서 되돌려 놓으면 되고 `/Library/Developer/CommandLineTools` 은 통으로 지워버려도 됩니다.
+만약 Xcode 가 설치되어 있다면 경로를 Xcode.app 으로 바꿔놓고 `/Library/Developer/CommandLineTools` 은 통으로 지워버려도 됩니다.
 
-어쨌든 홈브루가 설치되면 마지막에 사용자가 스스로 알아서 `.zprofile` 에 `eval "$(/opt/homebrew/bin/brew shellenv)"` 을 넣으라고 안내가 나옵니다. 터미넣을 그냥 꺼버리지 말고 안내가 나오는대로 복사 붙여넣기 하면 업데이트 됩니다. 그냥 넣어주면 될 것을 굳이 ...
+홈브루가 설치되면 마지막에 사용자가 스스로 알아서 `.zprofile` 에 `eval "$(/opt/homebrew/bin/brew shellenv)"` 을 넣으라고 안내가 나옵니다. 터미넣을 그냥 꺼버리지 말고 안내가 나오는대로 복사 붙여넣기 하면 업데이트 됩니다.
 
 
 ## 홈브루 삭제할 때

@@ -4,7 +4,7 @@ title: Homebrew 와 Xcode
 categories: [Life]
 tags: [homebrew, xcode, command]
 teaser: "/assets/homebrew-install.jpg"
-brief: 홈브루 설치 시 Xcode Command Line Tool 설치를 요구합니다. Xcode 가 이미 깔려 있어도 설치한다고 하는데 거부하면 진행되지 않으니까 일단 설치하고 난 뒤에 되돌려놓으면 됩니다.
+brief: 홈브루 설치 시 Xcode Command Line Tool 설치를 요구합니다. Xcode 가 이미 깔려 있어는데 설치한다고 합니다. 거부하면 진행되지 않으니까 일단 설치하고 난 뒤에 되돌려놓으면 됩니다.
 math: false
 ---
 

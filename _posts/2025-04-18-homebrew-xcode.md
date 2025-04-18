@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Homebrew 와 Xcode
+title: Homebrew, 이미 Xcode 가 있는데 커맨드라인 툴을 설치하라고?
 categories: [Life]
 tags: [homebrew, xcode, command]
 teaser: "/assets/homebrew-install.jpg"

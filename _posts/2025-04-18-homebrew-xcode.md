@@ -55,5 +55,5 @@ $ mkdir .homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | t
 $ echo 'export PATH="$HOME/.homebrew/bin:$PATH"' >> .zprofile
 ```
 
-그러니까, 커맨드라인 툴을 설치해주고(Xcode 가 있다면 생략), 사용자 홈 디렉토리에 `.homebrew` 로 숨김폴더를 만들고, 최신 홈브루를 내려받아 풀어놓습니다. 그 후 `.zprofile`에 홈브루 경로를 등록해주는 거죠. 삭제할 때는 `~/.homebrew`를 통으로 지워버리고 `~/.zprofile` 을 편집기로 열어서 추가해준 홈브루 경로도 지우면 됩니다.
+커맨드라인 툴을 설치해주고(Xcode 가 있다면 생략), 사용자 홈 디렉토리에 `.homebrew` 로 숨김폴더를 만들고, 최신 홈브루를 내려받아 풀어놓습니다. 그 후 `.zprofile`에 홈브루 경로를 등록해주는 거죠. 삭제할 때는 `~/.homebrew`를 통으로 지워버리고 `~/.zprofile` 을 편집기로 열어서 추가해준 홈브루 경로도 지우면 됩니다.
 

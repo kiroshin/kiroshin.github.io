@@ -27,8 +27,12 @@ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/
 설치하는 과정에서 Xcode Command Line Tool 을 요구합니다. Xcode 가 이미 설치되어 있는데 커맨드라인툴을 설치한다고 하네요. 이거 설치 안하면 진행이 안 되니까 일단 설치합니다. 아마 대부분 홈브루를 사용하는 분들이 Xcode 까지 필요하지 않은 개발자일 것 같습니다.
 
 ```shell
+# 바꾸기
 $ sudo xcode-select --switch /Library/Developer/CommandLineTools/
 $ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer/
+
+# 확인
+$ xcode-select -p
 ```
 
 만약 Xcode 가 설치되어 있다면 경로를 Xcode.app 으로 바꿔놓고 `CommandLineTools` 디렉토리는 통으로 지워버려도 됩니다.

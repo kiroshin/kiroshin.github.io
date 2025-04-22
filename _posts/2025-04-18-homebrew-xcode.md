@@ -24,7 +24,7 @@ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/
 
 이건 애플 실리콘에서는 `/opt/homebrew`에, 인텔맥에서는 `/usr/local` 설치됩니다.
 
-설치하는 과정에서 Xcode Command Line Tool 을 요구합니다. Xcode 가 이미 설치되어 있는데 커맨드라인툴을 설치한다고 하네요. 이거 설치 안하면 진행이 안 되니까 일단 설치합니다. 설치 스크립트에서 검사를 어떻게 하는 건지 정말 어처구니가 없네요. 아마 대부분 홈브루를 사용하는 분들이 Xcode 까지 필요하지 않은 개발자일 것 같은데, 그래서 검사를 대충 하는 걸까요? 커맨드라인 툴을 곱게 설치만 하는 게 아니라 원래 Xcode.app 으로 지정되어 있던 경로를 CommandLineTools 로 바꿔버립니다.
+설치하는 과정에서 Xcode Command Line Tool 을 요구합니다. Xcode 가 이미 설치되어 있는데 커맨드라인툴을 설치한다고 하네요. 이거 설치 안하면 진행이 안 되니까 일단 설치합니다. 아마 대부분 홈브루를 사용하는 분들이 Xcode 까지 필요하지 않은 개발자일 것 같습니다.
 
 ```shell
 $ sudo xcode-select --switch /Library/Developer/CommandLineTools/

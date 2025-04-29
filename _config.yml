@@ -1,5 +1,6 @@
 lang: ko
 locale: ko_KR
+timezone: Asia/Seoul
 title: Exception
 description: Hello, World!
 permalink: /:year-:month-:day-:title/

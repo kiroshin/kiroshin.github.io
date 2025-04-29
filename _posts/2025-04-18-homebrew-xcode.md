@@ -19,7 +19,7 @@ math: false
 보통 개발계정은 관라지 계정을 사용합니다. 터미널에 sudo 를 종종 입력해야 하는데, 일반계정이면 이게 불편하거든요. 그래서 홈부르 홈페이지는 이를 기준으로 안내합니다.
 
 ```shell
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+% /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 이건 애플 실리콘에서는 `/opt/homebrew`에, 인텔맥에서는 `/usr/local` 설치됩니다.
@@ -27,24 +27,27 @@ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/
 설치하는 과정에서 Xcode Command Line Tool 을 요구합니다. Xcode 가 이미 설치되어 있는데 커맨드라인툴을 설치한다고 하네요. 이거 설치 안하면 진행이 안 되니까 일단 설치합니다. 아마 대부분 홈브루를 사용하는 분들이 Xcode 까지 필요하지 않은 개발자일 것 같습니다.
 
 ```shell
+# 설치
+% xcode-select --install
+
 # 바꾸기
-$ sudo xcode-select --switch /Library/Developer/CommandLineTools/
-$ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer/
+% sudo xcode-select --switch /Library/Developer/CommandLineTools/
+% sudo xcode-select -s /Applications/Xcode.app/Contents/Developer/
 
 # 확인
-$ xcode-select -p
+% xcode-select -p
 ```
 
-만약 Xcode 가 설치되어 있다면 경로를 Xcode.app 으로 바꿔놓고 `CommandLineTools` 디렉토리는 통으로 지워버려도 됩니다.
+만약 Xcode 가 설치되어 있다면 경로를 Xcode.app 으로 바꿔놓으면 됩니다. 터미널에서 홈브루가 설치되면 마지막 로그에 사용자가 스스로 알아서 `.zprofile` 에 넣으라고 안내가 나옵니다. 그대로 복사 붙여넣기 하면 `zprofile` 에 업데이트 됩니다.
 
-터미널에서 홈브루가 설치되면 마지막 로그에 사용자가 스스로 알아서 `.zprofile` 에 넣으라고 안내가 나옵니다. 그대로 복사 붙여넣기 하면 `zprofile` 에 업데이트 됩니다.
+아마도 커맨트라인 툴은 지워버려도 될 것 같습니다. `CommandLineTools` 디렉토리를 통으로 삭제하고 휴지통 비우면 됩니다.
 
 
 ## 홈브루 삭제할 때
 언인스톨 스크립트로 제공합니다. 이렇게 제거하고 나서 설치 디렉토리 (`/opt/homebrew`)를 통을 지워버리면 됩니다.
 
 ```shell
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
+% /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
 ```
 
 
@@ -52,10 +55,9 @@ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/
 만약 유저의 홈 디렉토리에 `~/.homebrew` 를 만들어서 거기에 설치하고 싶다면 다음처럼 하면 됩니다.
 
 ```shell
-$ xcode-select --install
-$ cd $HOME
-$ mkdir .homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C .homebrew
-$ echo 'export PATH="$HOME/.homebrew/bin:$PATH"' >> .zprofile
+% cd ~
+% mkdir .homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C .homebrew
+% echo 'export PATH="$HOME/.homebrew/bin:$PATH"' >> .zprofile
 ```
 
 커맨드라인 툴을 설치해주고(Xcode 가 있다면 생략), 사용자 홈 디렉토리에 `.homebrew` 로 숨김폴더를 만들고, 최신 홈브루를 내려받아 풀어놓습니다. 그 후 `.zprofile`에 홈브루 경로를 등록해주는 거죠. 삭제할 때는 `~/.homebrew`를 통으로 지워버리고 `~/.zprofile` 을 편집기로 열어서 추가해준 홈브루 경로도 지우면 됩니다.

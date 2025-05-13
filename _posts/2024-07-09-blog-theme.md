@@ -35,7 +35,6 @@ brief: 테마를 새로 만들었습니다. 웹은 제 분야가 아닙니다. �
 * <https://developer.mozilla.org/ko/docs/Web/HTML/Element/article>
 * <https://doit-fwd.tistory.com/10>
 * <https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout>
-* <https://www.nextree.co.kr/p8622/>
 * <https://uxkm.io/publishing/html/10-structure/02-html5_document>
 * <https://codingeverybody.kr/html-article-태그-올바른-이해와-사용-방법/>
 

@@ -11,7 +11,7 @@ $social-icon-size: 28px;
 $radius-tiny-size: 4px;
 $radius-small-size: 8px;
 $radius-half: 50%;
-$text-font-size-code: 13px;
+$text-font-size-code: 14px;
 $text-font-size-small: 17px;
 $text-font-size-medium: 18px;
 $text-font-size-large: 19px;
@@ -21,9 +21,9 @@ $head-font-h1: 1.6em;
 $head-font-h2: 1.45em;
 $head-font-h3: 1.35em;
 
-$serif: ui-serif, -apple-system-ui-serif, source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif !default;
-$sans-serif: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif !default;
-$monospace: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace !default;
+$serif: 'Noto Serif KR', 'Noto Serif', ui-serif, serif !default;
+$sans-serif: 'Noto Sans KR', 'Noto Sans', ui-sans-serif, sans-serif !default;
+$monospace: 'SF Mono', 'Source Code Pro', ui-monospace, monospace !default;
 
 $link-color: #044c87;
 $link-color-focus: #00a4d6;

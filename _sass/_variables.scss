@@ -12,6 +12,7 @@ $radius-tiny-size: 4px;
 $radius-small-size: 8px;
 $radius-half: 50%;
 $text-font-size-code: 14px;
+$text-font-size-tiny: 16px;
 $text-font-size-small: 17px;
 $text-font-size-medium: 18px;
 $text-font-size-large: 19px;
@@ -21,8 +22,8 @@ $head-font-h1: 1.6em;
 $head-font-h2: 1.45em;
 $head-font-h3: 1.35em;
 
-$serif: 'Noto Serif KR', 'Noto Serif', ui-serif, serif !default;
-$sans-serif: 'Noto Sans KR', 'Noto Sans', ui-sans-serif, sans-serif !default;
+$serif: 'Noto Serif KR', 'Noto Serif', 'Nanum Myeongjo', 'Times New Roman', ui-serif, serif !default;
+$sans-serif: 'Noto Sans KR', 'Noto Sans', 'Nanum Gothic', 'Malgun Gothic', 'Segoe UI', ui-sans-serif, sans-serif !default;
 $monospace: 'SF Mono', Menlo, Consolas, 'Lucida Console', 'dejavu sans mono', 'Source Code Pro', ui-monospace, monospace !default;
 
 $link-color: #044c87;

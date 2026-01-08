@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 개발자의 노트북 (맥북에어/맥북프로)
-categories: [Life]
+categories: [Esc]
 tags: [macbook, mac, developer, apple, m4, m4pro]
 teaser: "/assets/apple-m4-m4pro-chip.jpg"
 brief: 가장 좋은 선택은 지금 자신에게 필요한 사양에 맞춰서 사는 것입니다. 오버스펙으로 살 이유가 전혀 없습니다. 배터리는 아무리 잘 관리하더라도 3년째에는 바꿔야 합니다. 아무리 좋은 노트북을 사더라도 6년 째에는 교체하지 않고 버티기가 힘듭니다. 오래 쓸 수 없습니다.

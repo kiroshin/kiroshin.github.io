@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 깃허브 지킬 테마 제작
-categories: [Life]
+categories: [Esc]
 tags: [blog, theme]
 teaser: "/assets/make-blog-theme.jpg"
 brief: 테마를 새로 만들었습니다. 웹은 제 분야가 아닙니다. 그래서 능숙하지 못합니다. 최대한 단순하게, 최대한 별 거 없게, 최대한 나중에 기억나기 쉽게 해봤습니다. 원하는 대로 만들어졌고, 원하는 것만 담았습니다. 다시 만들어 보라고 하면 안할 것 같습니다.

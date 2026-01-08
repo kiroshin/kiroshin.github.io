@@ -54,11 +54,13 @@ available. These components can be acquired through a Visual Studio installer.
 * 2019: <https://aka.ms/vs/16/release/vs_buildtools.exe>
 * 2022: <https://aka.ms/vs/17/release/vs_buildtools.exe>
 
-저는 윈도우 10에 2017 버전을 설치했는데, 아무 문제없네요. 용량도 4G로 제일 적습니다. 2022 버전은 7G 입니다.
+저는 윈도우10에 2017 버전을 설치했는데, 아무 문제없네요. 용량도 4G로 제일 적습니다. 2022 버전은 7G 입니다.
 
 ![MSVC compiler](/assets/rust-req-visual-cpp-build-tools.jpg)
 
-`Visual C++ 빌드 도구`를 클릭하면 선택되는 항목은 모두 설치해줍니다. 용량 아낀다고 이런 거 빼버리면 어디서 오류를 만날지 모릅니다(저도 `선택사항` 항목을 빼고 싶은 마음이 큽니다만, Windows SDK 가 빠졌을 때 오류가 났습니다.). 어쨌든 설치가 다 끝나고 나면 다운받은 `rustup-init.exe` 파일을 다시 클릭합니다.
+> 추가: Python 3.13 과 Nuitka를 윈도우에서 컴파일하려면 MSVC compiler 2022 이상의 버전과 "WinUI 애플리케이션 개발도구 > C++ 유니버셜 Windows 플랫폼 도구" 가 필요합니다. 이렇게 특수한 경우가 아니라면 최소 설치로 기본 C++ 빌드 도구에 있는 'x64/x86 MSVC 빌드도구' 와 'Windows SDK' 정도만 있어도 충분합니다. SDK 까지 있어야 하는 이유는 헤더와 리소스컴파일러가 SDK 에 들어있기 때문입니다.
+
+`Visual C++ 빌드 도구`를 클릭하면 선택되는 항목은 모두 설치해줍니다. 어쨌든 설치가 다 끝나고 나면 다운받은 `rustup-init.exe` 파일을 다시 클릭합니다.
 
 ```
 Welcome to Rust!

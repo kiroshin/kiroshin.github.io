@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 토닉으로 grpc 연결
+title: 우분투 리눅스 서버 직접 설치
 categories: [Esc]
 tags: [linux, ubuntu, hardware, install]
 teaser: "/assets/linux-ubuntu-mini.jpg"

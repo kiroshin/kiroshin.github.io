@@ -59,7 +59,7 @@ NAME        TYPE        NOTES
 ```
 Proxy configuration
 If this system requires a proxy to connect to the internet ...
-Proxy Address:
+Proxy Address: [                 ]
 ```
 
 다음은 프록시인데, 없으니까 그냥 비워두고 넘어가도 됩니다.

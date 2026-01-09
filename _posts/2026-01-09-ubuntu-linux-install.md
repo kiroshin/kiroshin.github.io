@@ -91,7 +91,7 @@ Configure a duided storage layout, or create a custom one:
 Storage configuration
 FILE SYSTEM SUMMARY
 MOUNT POINT     SIZE         TYPE         DEVICE TYPE
-[/              100.000G     new ext4     new LVM local volum          ▶]
+[/              100.000G     new ext4     new LVM local volume         ▶]
 [/boot            2.000G     new ext4     new partition of local disk  ▶]
 [/boot/efi        1.049G     new fat32    new partition of local disk  ▶]
 
@@ -138,7 +138,7 @@ Size (max 928.257G):   [ 928.257G        ]
 Storage configuration
 FILE SYSTEM SUMMARY
 MOUNT POINT     SIZE        TYPE          DEVICE TYPE
-[/              928.457G    new ext4      new LVM local volum          ▶]
+[/              928.457G    new ext4      new LVM local volume         ▶]
 [/boot            2.000G    new ext4      new partition of local disk  ▶]
 [/boot/efi        1.049G    new fat32     new partition of local disk  ▶]
 [/srv           298.091G    new ext4      logical disk                 ▶]

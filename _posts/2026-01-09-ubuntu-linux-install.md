@@ -206,7 +206,7 @@ These are popular snaps in server environments. select or...
 ...
 ```
 
-미니니까 추가적으로 설치할 거 없어요. 안 할겁니다.
+최소로 설치하는 게 목적입니다. 추가적으로 설치할 거 없어요. 안 할겁니다.
 
 ```
 Installing system
@@ -215,7 +215,7 @@ Installing system
     ...
 ```
 
-이제 줄줄 나오면서 인스톨됩니다. 다 되면 USB 빼고 엔터 치라고 나옵니다. 그리고 재부팅
+이제 로그가 줄줄 나오면서 인스톨됩니다. 다 되면 USB 빼고 엔터 치라고 나옵니다. 그리고 재부팅
 
 ```
 Ubuntu 24.04.3 LTS asrock tty1
@@ -238,7 +238,7 @@ afasdfasdfasdfasgrtyuhswergsdf5g4sgsdfgafqwe54fqwefqawfqfasdafsatyytrj
 asrock login:
 ```
 
-다 됐습니다. 아까 SSH KEY 를 Import 하지 않았기 때문인데, 비번으로 로그인 할 겁니다. 이제 터미널로 접근할 수 있습니다. 터미널로 처음 접근하면 .ssh 디렉토리에 known_hosts 를 등록하고 로그인 됩니다.
+다 됐습니다. 비번으로 로그인 할 겁니다. 이제 터미널로 접근할 수 있습니다. 터미널로 서버 IP에 처음 접근하면 .ssh 디렉토리에 known_hosts 를 등록하고 로그인 됩니다.
 
 ```
 ED25519 key fingerprint is SHA256:lNkfvJ6BK/VTGHDO6anSKKgmw0mlQgsSSg0SkOF9UoM.

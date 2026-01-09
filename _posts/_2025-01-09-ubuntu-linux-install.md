@@ -3,8 +3,8 @@ layout: post
 title: 토닉으로 grpc 연결
 categories: [Esc]
 tags: [linux, ubuntu, hardware, install]
-teaser: "/assets/grpc-http2.jpg"
-brief: 하드웨어에 설치 요약...
+teaser: "/assets/linux-ubuntu-mini.jpg"
+brief: 클라우드가 생긴 이후로 직접 서버를 인스톨할 일이 거의 없어졌습니다. 구형 PC가 남아 돌아도 물리머신을 돌리면 전기도 먹고 팬 소음도 있어서 이걸 24시간 구동하는 일이 없어요. 그런데 가끔 필요할 때가 있습니다.
 math: false
 ---
 

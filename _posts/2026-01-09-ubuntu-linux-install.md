@@ -95,7 +95,6 @@ MOUNT POINT     SIZE         TYPE         DEVICE TYPE
 [/boot            2.000G     new ext4     new partition of local disk  ▶]
 [/boot/efi        1.049G     new fat32    new partition of local disk  ▶]
 
-
 AVAILABLE DEVICES           TYPE                SIZE
    DEVICE
 [ ubuntu-vg (new)           LVM volume group    928.457G ▶]

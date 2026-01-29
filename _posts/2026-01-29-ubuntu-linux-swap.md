@@ -4,7 +4,7 @@ title: 리눅스 스왑 조정
 categories: [Esc]
 tags: [linux, ubuntu, ram, memory, swap]
 teaser: "/assets/linux-ubuntu-mini.jpg"
-brief: 있습니다.
+brief: 스왑은 부족한 램을 보충해 줄 수 있는 수단은 아니고, 메모리 넘칠 때 충격을 좀 완충해줄 수 있는 정도의 역할만 합니다. 스왑이 많이 차는 게 보이면 스왑을 늘릴 게 아니라 물리 메모리를 증설하는 것이 좋습니다.
 math: false
 ---
 

@@ -64,7 +64,7 @@ $ echo "vm.swappiness = 10" | sudo tee -a /etc/sysctl.conf
 # 현재 설정을 재부팅 하지 않고도 바로 로딩해서 반영되게
 $ sudo sysctl -p
 
-# 결과 확인: 30 이 출력됩니다.
+# 결과 확인: 10 이 출력됩니다.
 $ cat /proc/sys/vm/swappiness
 ```
 

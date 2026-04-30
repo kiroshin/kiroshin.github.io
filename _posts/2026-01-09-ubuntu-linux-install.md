@@ -309,4 +309,26 @@ kiro@asrock:~$ ls -l /swap.img
 
 초기 메모리 사용량이 394Mb 밖에 안 되네요. 좋습니다. 특이한 것은 물리 메모리가 8기가인데, 여기에 스왑이 자동으로 4Gb 할당되어 있다는 점입니다. 램이 적어서 인스톨 한 뒤 따로 스왑을 잡으려고 했는데 알아서 해주니 편합니다. fstab 에도 정상적으로 등록되어 있네요. (주석이나 UUID는 편집해서 붙여넣기 했음).
 
+SSD 환경이라면 쓰기 수명을 아끼기 위해 다음과 같이 할 수 있습니다.
+
+```
+/dev/disk/by-id/dm-uuid-LVM    /          ext4    defaults,noatime  0  1
+/dev/disk/by-uuid/1a7fbc71-    /srv       ext4    defaults,noatime  0  1
+/dev/disk/by-uuid/30f2fbe1-    /boot      ext4    defaults  0  1
+/dev/disk/by-uuid/7239-9CDC    /boot/efi  vfat    defaults  0  1
+# 스왑
+/swap.img                      none       swap    sw        0  0
+# 램디스크
+tmpfs                          /tmp       tmpfs   defaults,noatime,mode=1777,size=2G  0  0
+```
+
+noatime 은 Access 시간을 따로 기록하지 않는다는 것입니다. 굳이 할 필요가 없죠.
+
+주의할 점은
+* 항목간 구분은 tab으로 한다는 점입니다. 띄어쓰기 아닙니다.
+* boot 영역은 noatime 하지 않습니다. 여긴 건들지 않습니다.
+* defaults,noatime 처럼 옵션은 붙여씁니다.
+* tmp 마운트를 램으로 하면 쓰기를 굉장히 아낄 수 있습니다. 용량은 2G로 잡았는데, 이건 조금씩 다를 수 있습니다.
+* tmp의 mode=1777 은 1(소유주) + 777(읽기쓰기제약없이) 입니다.
+
 결론: 우분투 리눅스 서버 설치는 엄청 쉽고 간단합니다. 다만 하드디스크 설정은 Edit 필수입니다.
